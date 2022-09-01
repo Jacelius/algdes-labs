@@ -36,10 +36,9 @@ class GS {
             int personid = Integer.parseInt(SplitonColon[0]);
             Person p = getPersonById(personid, TotalPersonList);
             String[] preferences = SplitonColon[1].split(" ");
-        
+            String[] modifiedprefernces = Arrays.copyOfRange(preferences, 1, preferences.length);
             ArrayList<Integer> idprefs = new ArrayList<Integer>();
-            preferences0);
-            for (String str : preferences) {
+            for (String str : modifiedprefernces) {
                 idprefs.add(Integer.parseInt(str));
             }
             p.setPreferenceList(idprefs);
