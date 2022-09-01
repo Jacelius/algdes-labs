@@ -26,16 +26,19 @@ class GS {
         TotalPersonList.addAll(rejecters);
 
         String throwaway = sc.nextLine();
+        String throwaway2 = sc.nextLine();
 
         // Fill preference lists
         for (int i = 1; i <= 2 * n; i++) {
-            String newline = sc.nextLine(); // this is empty string ???????
+            String newline = sc.nextLine();
             String[] SplitonColon = newline.split(":");
             System.out.println(SplitonColon.toString());
             int personid = Integer.parseInt(SplitonColon[0]);
             Person p = getPersonById(personid, TotalPersonList);
             String[] preferences = SplitonColon[1].split(" ");
+        
             ArrayList<Integer> idprefs = new ArrayList<Integer>();
+            preferences0);
             for (String str : preferences) {
                 idprefs.add(Integer.parseInt(str));
             }
