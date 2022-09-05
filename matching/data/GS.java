@@ -80,6 +80,7 @@ class GS {
                 }
             }
         }
+
         for (Person p : proposers) {
             System.out.println(p.name + " -- " + getPersonById(p.engagedToId, TotalPersonList).name);
         }
