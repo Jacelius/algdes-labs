@@ -7,7 +7,7 @@ function print() {
     then
       javac ./Closest.java
       echo -n "${BASH_REMATCH[1]}.tsp: "
-      java ClosestPoints < $FILE
+      java ./Closest < $FILE
     else
       echo "Could not figure out format"
     fi  

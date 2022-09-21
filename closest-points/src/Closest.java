@@ -15,10 +15,13 @@ public class Closest {
             s = sc.nextLine();
         }
 
+        int numpoints = 0;
+
         while (sc.hasNextInt()) {
-            sc.nextInt(); // skip the first number for id
-            double x = sc.nextDouble();
-            double y = sc.nextDouble();
+            numpoints = sc.nextInt(); // skip the first number for id
+
+            double x = Double.valueOf(sc.next());
+            double y = Double.valueOf(sc.next());
 
             coords.add(new Coord(x, y));
         }
@@ -28,7 +31,7 @@ public class Closest {
         // Divide & Conquer algorithm: find the closest pair
         // sort coords by x axis
         coords.sort((c1, c2) -> (int) c1.x - (int) c2.x);
-        System.out.println(DivideAndConquerClosestPairs(coords));
+        System.out.println(numpoints + " " + DivideAndConquerClosestPairs(coords));
     }
 
     public static double ClosestPointsBrute(List<Coord> coords) {
