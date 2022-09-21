@@ -7,7 +7,7 @@ public class Closest {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Coord> coords = new ArrayList<>();
+        List<Coord> coords = new ArrayList<>();
 
         // parsing input
         String s = sc.nextLine();
@@ -30,8 +30,10 @@ public class Closest {
 
         // Divide & Conquer algorithm: find the closest pair
         // sort coords by x axis
-        coords.sort((c1, c2) -> (int) c1.x - (int) c2.x);
-        System.out.println(numpoints + " " + DivideAndConquerClosestPairs(coords));
+        coords.sort((Coord c1, Coord c2) -> Double.compare(c1.x, c2.x));
+        double sortedX = DivideAndConquerClosestPairs(coords);
+
+        System.out.println(numpoints + " " + sortedX);
     }
 
     public static double ClosestPointsBrute(List<Coord> coords) {
@@ -54,17 +56,38 @@ public class Closest {
         List<Coord> right = new ArrayList<Coord>();
 
         // Split coords into two about equally sized sublists
+
+        int median = coords.size() / 2;
         // Sublist has O(1) time complexity
-        if (coords.size() % 2 == 0) {
-            left = coords.subList(0, coords.size() / 2);
-            right = coords.subList(coords.size() / 2 + 1, coords.size());
-        } else {
-            int medianIndex = (int) (Math.floor(coords.size() / 2));
-            left = coords.subList(0, medianIndex);
-            right = coords.subList(medianIndex + 1 / 2 + 1, coords.size());
-        }
+        left = coords.subList(0, median);
+        right = coords.subList(median, coords.size());
 
         double min = Math.min(DivideAndConquerClosestPairs(left), DivideAndConquerClosestPairs(right));
+
+        List<Coord> bl = new ArrayList<>();
+        List<Coord> br = new ArrayList<>();
+        for (Coord coord : left) {
+            if (coord.x >= (coords.get(median).x - min)) {
+                bl.add(coord);
+            }
+        }
+        for (Coord coord : right) {
+            if (coord.x <= (coords.get(median).x + min)) {
+                br.add(coord);
+            }
+        }
+
+        // sort br by y axis
+        br.sort((Coord c1, Coord c2) -> Double.compare(c1.y, c2.y));
+
+        // binary search for highest point in br min * 2min box
+        for (Coord coord : bl) {
+            for (int i = 0; i < br.size(); i++) {
+                if (br.get(i).y >= (coord.y - min) && br.get(i).y <= (coord.y + min)) {
+                    min = Math.min(min, Coord.getDistance(coord, br.get(i)));
+                }
+            }
+        }
 
         // Output should be {filename} {dimension} {closets pair distance}
 
