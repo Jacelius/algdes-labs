@@ -48,7 +48,7 @@ class GS {
         }
 
         // Gale-Shapley algorithm
-        ArrayList<Person> freeProposers = new ArrayList<>(proposers);
+        LinkedList<Person> freeProposers = new LinkedList<>(proposers);
         while (freeProposers.size() > 0) {
             Person man = freeProposers.get(0);
             // get man's highest ranked woman, who he hasn't been proposed to
@@ -60,7 +60,7 @@ class GS {
                 woman.setEngagedToId(man.id);
                 man.setEngagedToId(womanId);
                 man.getPreferenceList().remove(0); // "cross off" woman in pref list
-                freeProposers.remove(0); // remove man from freeProposers
+                freeProposers.remove(); // remove man from freeProposers (linkedlist head)
             } else {
                 // woman is engaged, so she will compare man to her current man
                 ArrayList<Integer> womanPrefList = woman.getPreferenceList();
@@ -71,7 +71,7 @@ class GS {
                     Person currentMan = getPersonById(currentManId, TotalPersonList);
                     currentMan.setIsEngaged(false);
                     freeProposers.add(currentMan); // yeet current man back to freeProposers
-                    freeProposers.remove(0); // remove new man
+                    freeProposers.remove(); // remove new man
                     man.setEngagedToId(womanId);
                     woman.setEngagedToId(man.id);
 
@@ -80,6 +80,7 @@ class GS {
                 }
             }
         }
+
         for (Person p : proposers) {
             System.out.println(p.name + " -- " + getPersonById(p.engagedToId, TotalPersonList).name);
         }

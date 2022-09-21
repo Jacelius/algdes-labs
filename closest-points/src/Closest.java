@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.awt.geom.Point2D;
 
 public class Closest {
 
@@ -15,8 +17,8 @@ public class Closest {
 
         while (sc.hasNextInt()) {
             sc.nextInt(); // skip the first number for id
-            int x = sc.nextInt();
-            int y = sc.nextInt();
+            double x = sc.nextDouble();
+            double y = sc.nextDouble();
 
             coords.add(new Coord(x, y));
         }
@@ -25,49 +27,59 @@ public class Closest {
 
         // Divide & Conquer algorithm: find the closest pair
         // sort coords by x axis
-        coords.sort((c1, c2) -> c1.x - c2.x);
-
-        DivideAndConquerClosestPairs(coords, getMedian(coords));
+        coords.sort((c1, c2) -> (int) c1.x - (int) c2.x);
+        System.out.println(DivideAndConquerClosestPairs(coords));
     }
 
-    public static double getMedian(ArrayList<Coord> coords) {
-        int size = coords.size();
-        if (size % 2 == 0) {
-            return (coords.get(size / 2).x + coords.get(size / 2 - 1).x) / 2.0;
-        } else {
-            return coords.get(size / 2).x;
+    public static double ClosestPointsBrute(List<Coord> coords) {
+        double min = Double.MAX_VALUE;
+        for (int i = 0; i < coords.size(); i++) {
+            for (int j = i + 1; j < coords.size(); j++) {
+                min = Math.min(min, Coord.getDistance(coords.get(i), coords.get(j)));
+            }
         }
 
+        return min;
     }
 
-    public static void DivideAndConquerClosestPairs(ArrayList<Coord> coords, double median) {
+    public static double DivideAndConquerClosestPairs(List<Coord> coords) {
         // Given a sorted arraylist of Coords print the pair with the minimum distance
-        if (coords.size() < 3) {
-
+        if (coords.size() <= 3) {
+            return ClosestPointsBrute(coords);
         }
+        List<Coord> left = new ArrayList<Coord>();
+        List<Coord> right = new ArrayList<Coord>();
 
-        // Split coords into two sublists split by median
+        // Split coords into two about equally sized sublists
         // Sublist has O(1) time complexity
         if (coords.size() % 2 == 0) {
-            ArrayList<Coord> left = (ArrayList<Closest.Coord>) coords.subList(0, coords.size() / 2);
-            ArrayList<Coord> right = (ArrayList<Closest.Coord>) coords.subList(coords.size() / 2 + 1, coords.size());
+            left = coords.subList(0, coords.size() / 2);
+            right = coords.subList(coords.size() / 2 + 1, coords.size());
         } else {
             int medianIndex = (int) (Math.floor(coords.size() / 2));
-            ArrayList<Coord> left = (ArrayList<Closest.Coord>) coords.subList(0, medianIndex);
-            ArrayList<Coord> right = (ArrayList<Closest.Coord>) coords.subList(medianIndex + 1 / 2 + 1, coords.size());
+            left = coords.subList(0, medianIndex);
+            right = coords.subList(medianIndex + 1 / 2 + 1, coords.size());
         }
+
+        double min = Math.min(DivideAndConquerClosestPairs(left), DivideAndConquerClosestPairs(right));
 
         // Output should be {filename} {dimension} {closets pair distance}
 
+        return min; // Change this when we have a resultx
     }
 
     public static class Coord {
-        int x;
-        int y;
+        double x;
+        double y;
 
-        public Coord(int x, int y) {
+        public Coord(double x, double y) {
             this.x = x;
             this.y = y;
+        }
+
+        // Function to get distance between coords
+        public static double getDistance(Coord a, Coord b) {
+            return Point2D.distance(a.x, a.y, b.x, b.y);
         }
 
         @Override
