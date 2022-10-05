@@ -75,7 +75,7 @@ def max_traceback(A, T, x, y, i, j):
         A[i-1][j] + gap_penalty,
         A[i][j-1] + gap_penalty
     )
-
+    
     if maxvalue == A[i-1][j-1] + blosum[y[i-1]][x[j-1]]:
         T[i][j] = 'Diag'
     elif maxvalue == A[i-1][j] + gap_penalty:
@@ -153,3 +153,5 @@ print(f"{x_name[1:]}--{y_name[1:]} score = {str(mn)}")
 traversal(T, '', len(T)-1, len(T[0])-1)
 
 
+show("A", A)
+show("T", T)
