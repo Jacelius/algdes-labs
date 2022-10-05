@@ -138,6 +138,7 @@ def show(intro, mat):
 def create_2d_array(x, y):
     return [[0 for i in range(len(x)+1)] for j in range(len(y)+1)] 
 
+
 def fill_gp(arr):
     for i in range(1, len(arr)+1): # fill column with gps
         arr[0][i] = gap_penalty * i
@@ -147,14 +148,20 @@ def fill_gp(arr):
 def alignment2(A, x, y): # x and y are the sequences as strings
     for i in range(1, len(A)): # loop over length of row
         for j in range(1, len(A[0])): # loop over length of column
-            A[i][j] = max(
-                A[i-1][j-1] + blosum[y[i-1]][x[j-1]],
-                A[i-1][j] + gap_penalty,
-                A[i][j-1] + gap_penalty
-            )
+                A[i][j] = max(
+                    A[i-1][j-1] + blosum[y[i-1]][x[j-1]],
+                    A[i-1][j] + gap_penalty,
+                    A[i][j-1] + gap_penalty
+                )
 
-x = dna['>Sphinx']
-y = dna['>Bandersnatch']
+def getSmallerDna(dna1, dna2):
+    if len(dna1) >= len(dna2):
+        return dna1, dna2
+    return dna2, dna1
+
+x,y = getSmallerDna(dna['>Sphinx'], dna['>Bandersnatch']) 
+
+
 max_size = max(len(x)+1, len(y)+1)
 A = create_2d_array(x, y)  # initialize A (The 2d array of scores)
 T = create_2d_array(x, y)  # initialize A (The 2d array of scores)
