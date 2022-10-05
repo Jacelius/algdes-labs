@@ -30,8 +30,13 @@ with open('data/BLOSUM62.txt') as f:
         for j in range(len(l)):
             blosum[indexes[i]][indexes[j]] = int(l[j])
 
-with open('data/HbB_FASTAs-in.txt') as f:
-    lines = f.readlines()
+i = input("Press 1 to run HbB and any other key to run Toy: ")
+if i == '1':
+    with open('data/HbB_FASTAs-in.txt') as f:
+        lines = f.readlines()
+else:
+    with open('data/Toy_FASTAs-in.txt') as f:
+        lines = f.readlines()
 
 dna = {}
 for line in lines:
@@ -111,19 +116,27 @@ def traversal(T, s, i, j):
     elif next_step == "Diag":
         traversal(T, y[i-1] + s, i-1, j-1)
     else:
-        print(f"{x_name[1:]}--{y_name[1:]} alignment = {s}")  
+        print(y)
+        print(s) 
 
 
 gap_penalty = blosum['*']['A'] # -4
 double_gap_penalty = blosum['*']['*'] # 1
 
+keys = []
+
 # removes all new lines in that shitty input file >:(
 for key in dna:
+    keys.append(key)
     val = dna[key]
     dna[key] = val.replace('\n', '')
 
-x_name = '>Human'
-y_name = '>Spider'
+print('Available inputs: ' + str(keys))
+x_name = input("Choose first subject: ")
+y_name = input("Choose second subject: ")
+
+x_name = '>' + x_name.lower().replace('>', '').capitalize()
+y_name = '>' + y_name.lower().replace('>', '').capitalize()
 
 x,y = getBiggerDna(dna[x_name], dna[y_name]) 
 
