@@ -140,9 +140,10 @@ def create_2d_array(x, y):
 
 
 def fill_gp(arr):
-    for i in range(1, len(arr)+1): # fill column with gps
+
+    for i in range(1, len(arr[0])): # fill column with gps
         arr[0][i] = gap_penalty * i
-        for j in range(i):
+        for j in range(len(arr)):
             arr[j][0] = gap_penalty * j
 
 def alignment2(A, x, y): # x and y are the sequences as strings
@@ -153,13 +154,17 @@ def alignment2(A, x, y): # x and y are the sequences as strings
                     A[i-1][j] + gap_penalty,
                     A[i][j-1] + gap_penalty
                 )
+    return A[len(A)-1][len(A[0])-1]
 
 def getSmallerDna(dna1, dna2):
     if len(dna1) >= len(dna2):
         return dna1, dna2
     return dna2, dna1
 
-x,y = getSmallerDna(dna['>Sphinx'], dna['>Bandersnatch']) 
+
+x_name = '>Sphinx'
+y_name = '>Snark'
+x,y = getSmallerDna(dna[x_name], dna[y_name]) 
 
 
 max_size = max(len(x)+1, len(y)+1)
@@ -168,9 +173,10 @@ T = create_2d_array(x, y)  # initialize A (The 2d array of scores)
 
 fill_gp(A) # fill the first row and column with gap penalties
 
-alignment2(A, x, y)
-
+mn = alignment2(A, x, y)
 show("A", A)
+print(f"{x_name}--{y_name} score = {str(mn)}")
+
 
 """ for key in dna:
     # mix with all other dna's
