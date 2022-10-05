@@ -1,4 +1,4 @@
-# Helper function to print a matrix nicely
+# Helper function to print a matrix nicely -- Thank you Lorenzo404
 def show(intro, mat):
     print("\n" + intro)
     
@@ -30,10 +30,7 @@ with open('data/BLOSUM62.txt') as f:
         for j in range(len(l)):
             blosum[indexes[i]][indexes[j]] = int(l[j])
 
-
-
-
-with open('data/Toy_FASTAs-in.txt') as f:
+with open('data/HbB_FASTAs-in.txt') as f:
     lines = f.readlines()
 
 dna = {}
@@ -44,21 +41,6 @@ for line in lines:
     else:
         dna_string += line
         dna[name] = dna_string.strip('\n')
-
-
-# time for the sequence alignment algorithm
-"""
-(6.16) The minimum alignment costs satisfy the following recurrence for i ≥ 1 and j ≥ 1:
-opt(i, j) = min[ixiy + opt(i - 1, j - 1), 8 + opt(i - 1,j), 8 + opt(i, j - 1)].
-Moreover, (i,j) is in an optimal alignment M for this subproblem if and only if the minimum is achieved by the first of these values.
-We have maneuvered ourselves into a position where the dynamic programming algorithm has become clear: We build up the values of opt(i, j) using the recurrence in (6.16). There are only O(mn) subproblems, and OPT(m, n) is the value we are seeking.
-We now specify the algorithm to compute the value of the optimal alignment. For purposes of initialization, we note that opt(i, 0) = opt(0, i) = iδ for all i, since the only way to line up an i-letter word with a 0-letter word is to use i gaps.
-"""
-
-print("dna dict", dna)
-
-gap_penalty = blosum['*']['A'] # -4
-double_gap_penalty = blosum['*']['*'] # 1
 
 # helper function to print matrixes nicely
 def show(intro, mat):
@@ -79,8 +61,8 @@ def create_2d_array(x, y):
 
 def getBiggerDna(dna1, dna2):
     if len(dna1) >= len(dna2):
-        return dna1, dna2
-    return dna2, dna1
+        return dna1.strip(), dna2.strip()
+    return dna2.strip(), dna1.strip()
 
 def max_traceback(A, T, x, y, i, j):
     maxvalue = max(
@@ -129,10 +111,20 @@ def traversal(T, s, i, j):
     elif next_step == "Diag":
         traversal(T, y[i-1] + s, i-1, j-1)
     else:
-        print(f"{x_name}--{y_name} alignment = {s}")  
+        print(f"{x_name[1:]}--{y_name[1:]} alignment = {s}")  
 
-x_name = '>Sphinx'
-y_name = '>Bandersnatch'
+
+gap_penalty = blosum['*']['A'] # -4
+double_gap_penalty = blosum['*']['*'] # 1
+
+# removes all new lines in that shitty input file >:(
+for key in dna:
+    val = dna[key]
+    dna[key] = val.replace('\n', '')
+
+x_name = '>Human'
+y_name = '>Spider'
+
 x,y = getBiggerDna(dna[x_name], dna[y_name]) 
 
 max_size = max(len(x)+1, len(y)+1)
@@ -144,6 +136,7 @@ fill_traversal(T)
 
 mn = alignment(A, T, x, y)
 
-print(f"{x_name}--{y_name} score = {str(mn)}")
+print(f"{x_name[1:]}--{y_name[1:]} score = {str(mn)}")
 traversal(T, '', len(T)-1, len(T[0])-1)
+
 
