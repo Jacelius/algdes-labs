@@ -12,8 +12,8 @@ def show(intro, mat):
         for j in range(m):
             print(mat[i][j], end = " " if j < m - 1 else "\n")
 
-# read txt file data/BLOSUM62.txt, to add scores to a dictionary
-scores = {}
+# read txt file data/BLOSUM62.txt, to add blosum to a dictionary
+blosum = {}
 with open('data/BLOSUM62.txt') as f:
     lines = f.readlines()
     lines = [line.strip() for line in lines]
@@ -22,13 +22,15 @@ with open('data/BLOSUM62.txt') as f:
     # remove first index of each line
 
     for i in range(len(indexes)):
-        scores[indexes[i]] = {}
+        blosum[indexes[i]] = {}
         l = lines[i+1].split()
 
         # remove first element of l (Since it's a letter)
         l.pop(0)
         for j in range(len(l)):
-            scores[indexes[i]][indexes[j]] = int(l[j])
+            blosum[indexes[i]][indexes[j]] = int(l[j])
+
+
 
 
 with open('data/Toy_FASTAs-in.txt') as f:
@@ -55,8 +57,8 @@ We now specify the algorithm to compute the value of the optimal alignment. For 
 
 print("dna dict", dna)
 
-gap_penalty = scores['*']['A'] # -4
-double_gap_penalty = scores['*']['*'] # 1
+gap_penalty = blosum['*']['A'] # -4
+double_gap_penalty = blosum['*']['*'] # 1
 
 # helper function to print matrixes nicely
 def show(intro, mat):
@@ -72,74 +74,94 @@ def show(intro, mat):
         for j in range(m):
             print(mat[i][j], end=" " if j < m - 1 else "\n")
 
-def alignment(A, x, y):
-    # Initialize A[i, 0] for each i
-    for i in range(1, len(x)):
-        A[i][0] = i * gap_penalty
-    # Initialize A[0, j] for each j
-    for j in range(1, len(y)):
-        A[0][j] = j * gap_penalty
-    # Fill in the rest of the matrix
-    for i in range(len(x)):  # 0 .. n
-        for j in range(len(y)):  # 0 .. m
-            A[i][j] = max(
-                scores[x[i]][y[j]] + A[i-1][j-1],
-                gap_penalty + A[i-1][j],
-                gap_penalty + A[i][j-1]
-            )
-    return A[len(x)-1][len(y)-1]  # OPT(n, m)
+# def alignment(A, x, y):
+#     # Fill in the rest of the matrix
+#     for i in range(1, len(x)):  # 0 .. n
+#         for j in range(1, len(y)):  # 0 .. m
+#             A[i][j] = max( # we could be doing the traceback matrix here
+#                 blosum[x[i]][y[j]] + A[i-1][j-1], # match/mismatch
+#                 gap_penalty + A[i-1][j], # gap in x
+#                 gap_penalty + A[i][j-1] # gap in y
+#             )
+#     return A[len(x)-1][len(y)-1]  # OPT(n, m)
 
-def fill_traceback_matrix(A):
-    # Initialize the traceback matrix
-    T = [[0 for j in range(len(y))] for i in range(len(x))]
+# def fill_traceback_matrix(A):
+#     # Initialize the traceback matrix
+#     T = [[0 for j in range(len(y))] for i in range(len(x))]
 
-    # Define final cell in matrix
-    T[0][0] = "END"
+#     # Define final cell in matrix
+#     T[0][0] = "END"
 
-    # Initialize the first row and column
-    for i in range(1, len(x)):  # 1 .. n
-        T[i][0] = "UP"
-    for j in range(1, len(y)):  # 1 .. m
-        T[0][j] = "LEFT"
+#     # Initialize the first row and column
+#     for i in range(1, len(x)):  # 1 .. n
+#         T[i][0] = "UP"
+#     for j in range(1, len(y)):  # 1 .. m
+#         T[0][j] = "LEFT"
     
-    # Fill in the rest of the matrix
-    for i in range(1, len(x)):  # 0 .. n
-        for j in range(1, len(y)):  # 0 .. m
-            if A[i][j] == scores[x[i]][y[j]] + A[i-1][j-1]:
-                T[i][j] = "DIAG"
-            elif A[i][j] == gap_penalty + A[i-1][j]:
-                T[i][j] = "UP"
-            elif A[i][j] == gap_penalty + A[i][j-1]:
-                T[i][j] = "LEFT"
+#     # Fill in the rest of the matrix
+#     for i in range(1, len(x)):  # 0 .. n
+#         for j in range(1, len(y)):  # 0 .. m
+#             if A[i][j] == blosum[x[i]][y[j]] + A[i-1][j-1]:
+#                 T[i][j] = "DIAG"
+#             elif A[i][j] == gap_penalty + A[i-1][j]:
+#                 T[i][j] = "UP"
+#             elif A[i][j] == gap_penalty + A[i][j-1]:
+#                 T[i][j] = "LEFT"
     
-    return T
+#     return T
 
-def traverse_traceback_matrix(T, x, y): # x and y are the sequences
-    # Initialize the aligned strings
-    x_aligned = ""
-    y_aligned = ""
-    # Start from the bottom right cell in the traceback matrix
-    i = len(x) - 1
-    j = len(y) - 1
-    # Keep going until you reach the top left cell
-    while T[i][j] != "END":
-        if T[i][j] == "DIAG":
-            x_aligned = x[i] + x_aligned
-            y_aligned = y[j] + y_aligned
-            i -= 1
-            j -= 1
-        elif T[i][j] == "UP":
-            x_aligned = x[i] + x_aligned
-            y_aligned = "-" + y_aligned
-            i -= 1
-        elif T[i][j] == "LEFT":
-            x_aligned = "-" + x_aligned
-            y_aligned = y[j] + y_aligned
-            j -= 1
-    return x_aligned, y_aligned
+# def traverse_traceback_matrix(T, x, y): # x and y are the sequences
+#     # Initialize the aligned strings
+#     x_aligned = ""
+#     y_aligned = ""
+#     # Start from the bottom right cell in the traceback matrix
+#     i = len(x) - 1
+#     j = len(y) - 1
+#     # Keep going until you reach the top left cell
+#     while T[i][j] != "END":
+#         if T[i][j] == "DIAG":
+#             x_aligned = x[i] + x_aligned
+#             y_aligned = y[j] + y_aligned
+#             i -= 1
+#             j -= 1
+#         elif T[i][j] == "UP":
+#             x_aligned = x[i] + x_aligned
+#             y_aligned = "-" + y_aligned
+#             i -= 1
+#         elif T[i][j] == "LEFT":
+#             x_aligned = "-" + x_aligned
+#             y_aligned = y[j] + y_aligned
+#             j -= 1
+#     return x_aligned, y_aligned
 
 
-for key in dna:
+def create_2d_array(x, y):
+    return [[0 for i in range(len(x)+1)] for j in range(len(y)+1)] 
+
+def fill_gp(arr):
+    for i in range(1, len(arr)+1): # fill column with gps
+        arr[0][i] = gap_penalty * i
+        for j in range(i):
+            arr[j][0] = gap_penalty * j
+
+def alignment2(arr, x, y):
+    for i in range(1, len(arr)):
+        for j in range(1, i):
+            arr[i][j] = arr[i][j] + 1
+
+x = dna['>Sphinx']
+y = dna['>Bandersnatch']
+max_size = max(len(x)+1, len(y)+1)
+A = create_2d_array(x, y)  # initialize A (The 2d array of scores)
+T = create_2d_array(x, y)  # initialize A (The 2d array of scores)
+
+fill_gp(A) # fill the first row and column with gap penalties
+
+alignment2(A, x, y)
+
+show("A", A)
+
+""" for key in dna:
     # mix with all other dna's
     reduced_dna = dna.copy()
     reduced_dna.pop(key)
@@ -155,9 +177,10 @@ for key in dna:
         # to find the best alignment.
         T = fill_traceback_matrix(A)
         show("T for " + key +  " with " + other, T)
-        x_aligned, y_aligned = traverse_traceback_matrix(T, x, y)
+         x_aligned, y_aligned = traverse_traceback_matrix(T, x, y)
         print("x_aligned", x_aligned)
-        print("y_aligned", y_aligned)
+        print("y_aligned", y_aligned) """
         
+
 
 
