@@ -77,7 +77,7 @@ def show(intro, mat):
 def create_2d_array(x, y):
     return [[0 for i in range(len(x)+1)] for j in range(len(y)+1)] 
 
-def getSmallerDna(dna1, dna2):
+def getBiggerDna(dna1, dna2):
     if len(dna1) >= len(dna2):
         return dna1, dna2
     return dna2, dna1
@@ -118,14 +118,22 @@ def alignment(A, T, x, y): # x and y are the sequences as strings
                 A[i][j]= max_traceback(A, T, x, y, i, j)
     return A[len(A)-1][len(A[0])-1]
 
-def traversal():
-    pass
+def traversal(T, s, i, j):
+    # build up string alignment from T matrix
+    next_step = T[i][j]
 
+    if next_step == "Left":
+        traversal(T, "-" + s, i, j-1)
+    elif next_step == "Up":
+        traversal(T, "-" + s, i-1, j)
+    elif next_step == "Diag":
+        traversal(T, y[i-1] + s, i-1, j-1)
+    else:
+        print(f"{x_name}--{y_name} alignment = {s}")  
 
 x_name = '>Sphinx'
-y_name = '>Snark'
-x,y = getSmallerDna(dna[x_name], dna[y_name]) 
-
+y_name = '>Bandersnatch'
+x,y = getBiggerDna(dna[x_name], dna[y_name]) 
 
 max_size = max(len(x)+1, len(y)+1)
 A = create_2d_array(x, y)  # initialize A (The 2d array of scores)
@@ -135,31 +143,7 @@ fill_gp(A) # fill the first row and column with gap penalties
 fill_traversal(T)
 
 mn = alignment(A, T, x, y)
-show("A", A)
-show("T", T)
+
 print(f"{x_name}--{y_name} score = {str(mn)}")
-
-
-""" for key in dna:
-    # mix with all other dna's
-    reduced_dna = dna.copy()
-    reduced_dna.pop(key)
-    for other in reduced_dna:
-        x = dna[key]
-        y = reduced_dna[other]
-        max_size = max(len(x), len(y))
-        A = [[gap_penalty]*max_size for i in range(max_size)] # initialize A
-        mn = alignment(A, x, y)
-        show("A for " + key +  " with " + other, A)
-        print("A[m][n]", mn)
-        # Work backwards from (N - 1, M - 1) to (0, 0)
-        # to find the best alignment.
-        T = fill_traceback_matrix(A)
-        show("T for " + key +  " with " + other, T)
-         x_aligned, y_aligned = traverse_traceback_matrix(T, x, y)
-        print("x_aligned", x_aligned)
-        print("y_aligned", y_aligned) """
-        
-
-
+traversal(T, '', len(T)-1, len(T[0])-1)
 
