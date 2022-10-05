@@ -74,92 +74,52 @@ def show(intro, mat):
         for j in range(m):
             print(mat[i][j], end=" " if j < m - 1 else "\n")
 
-# def alignment(A, x, y):
-#     # Fill in the rest of the matrix
-#     for i in range(1, len(x)):  # 0 .. n
-#         for j in range(1, len(y)):  # 0 .. m
-#             A[i][j] = max( # we could be doing the traceback matrix here
-#                 blosum[x[i]][y[j]] + A[i-1][j-1], # match/mismatch
-#                 gap_penalty + A[i-1][j], # gap in x
-#                 gap_penalty + A[i][j-1] # gap in y
-#             )
-#     return A[len(x)-1][len(y)-1]  # OPT(n, m)
-
-# def fill_traceback_matrix(A):
-#     # Initialize the traceback matrix
-#     T = [[0 for j in range(len(y))] for i in range(len(x))]
-
-#     # Define final cell in matrix
-#     T[0][0] = "END"
-
-#     # Initialize the first row and column
-#     for i in range(1, len(x)):  # 1 .. n
-#         T[i][0] = "UP"
-#     for j in range(1, len(y)):  # 1 .. m
-#         T[0][j] = "LEFT"
-    
-#     # Fill in the rest of the matrix
-#     for i in range(1, len(x)):  # 0 .. n
-#         for j in range(1, len(y)):  # 0 .. m
-#             if A[i][j] == blosum[x[i]][y[j]] + A[i-1][j-1]:
-#                 T[i][j] = "DIAG"
-#             elif A[i][j] == gap_penalty + A[i-1][j]:
-#                 T[i][j] = "UP"
-#             elif A[i][j] == gap_penalty + A[i][j-1]:
-#                 T[i][j] = "LEFT"
-    
-#     return T
-
-# def traverse_traceback_matrix(T, x, y): # x and y are the sequences
-#     # Initialize the aligned strings
-#     x_aligned = ""
-#     y_aligned = ""
-#     # Start from the bottom right cell in the traceback matrix
-#     i = len(x) - 1
-#     j = len(y) - 1
-#     # Keep going until you reach the top left cell
-#     while T[i][j] != "END":
-#         if T[i][j] == "DIAG":
-#             x_aligned = x[i] + x_aligned
-#             y_aligned = y[j] + y_aligned
-#             i -= 1
-#             j -= 1
-#         elif T[i][j] == "UP":
-#             x_aligned = x[i] + x_aligned
-#             y_aligned = "-" + y_aligned
-#             i -= 1
-#         elif T[i][j] == "LEFT":
-#             x_aligned = "-" + x_aligned
-#             y_aligned = y[j] + y_aligned
-#             j -= 1
-#     return x_aligned, y_aligned
-
-
 def create_2d_array(x, y):
     return [[0 for i in range(len(x)+1)] for j in range(len(y)+1)] 
-
-
-def fill_gp(arr):
-
-    for i in range(1, len(arr[0])): # fill column with gps
-        arr[0][i] = gap_penalty * i
-        for j in range(len(arr)):
-            arr[j][0] = gap_penalty * j
-
-def alignment2(A, x, y): # x and y are the sequences as strings
-    for i in range(1, len(A)): # loop over length of row
-        for j in range(1, len(A[0])): # loop over length of column
-                A[i][j] = max(
-                    A[i-1][j-1] + blosum[y[i-1]][x[j-1]],
-                    A[i-1][j] + gap_penalty,
-                    A[i][j-1] + gap_penalty
-                )
-    return A[len(A)-1][len(A[0])-1]
 
 def getSmallerDna(dna1, dna2):
     if len(dna1) >= len(dna2):
         return dna1, dna2
     return dna2, dna1
+
+def max_traceback(A, T, x, y, i, j):
+    maxvalue = max(
+        A[i-1][j-1] + blosum[y[i-1]][x[j-1]],
+        A[i-1][j] + gap_penalty,
+        A[i][j-1] + gap_penalty
+    )
+
+    if maxvalue == A[i-1][j-1] + blosum[y[i-1]][x[j-1]]:
+        T[i][j] = 'Diag'
+    elif maxvalue == A[i-1][j] + gap_penalty:
+        T[i][j] = 'Up'
+    else:
+        T[i][j] = "Left"
+
+    return maxvalue
+
+def fill_traversal(arr):
+    for i in range(len(arr[0])): # fill column with gps
+        arr[0][i] = 'Left'
+        for j in range(len(arr)):
+            arr[j][0] = 'Up'
+    arr[0][0] = 'Done'
+
+def fill_gp(arr):
+    for i in range(1, len(arr[0])): # fill column with gps
+        arr[0][i] = gap_penalty * i
+        for j in range(len(arr)):
+            arr[j][0] = gap_penalty * j
+
+# fill up A
+def alignment(A, T, x, y): # x and y are the sequences as strings
+    for i in range(1, len(A)): # loop over length of row
+        for j in range(1, len(A[0])): # loop over length of column
+                A[i][j]= max_traceback(A, T, x, y, i, j)
+    return A[len(A)-1][len(A[0])-1]
+
+def traversal():
+    pass
 
 
 x_name = '>Sphinx'
@@ -171,10 +131,12 @@ max_size = max(len(x)+1, len(y)+1)
 A = create_2d_array(x, y)  # initialize A (The 2d array of scores)
 T = create_2d_array(x, y)  # initialize A (The 2d array of scores)
 
-fill_gp(A) # fill the first row and column with gap penalties
+fill_gp(A) # fill the first row and column with gap penalties 
+fill_traversal(T)
 
-mn = alignment2(A, x, y)
+mn = alignment(A, T, x, y)
 show("A", A)
+show("T", T)
 print(f"{x_name}--{y_name} score = {str(mn)}")
 
 
