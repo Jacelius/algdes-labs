@@ -144,10 +144,14 @@ def fill_gp(arr):
         for j in range(i):
             arr[j][0] = gap_penalty * j
 
-def alignment2(arr, x, y):
-    for i in range(1, len(arr)):
-        for j in range(1, i):
-            arr[i][j] = arr[i][j] + 1
+def alignment2(A, x, y): # x and y are the sequences as strings
+    for i in range(1, len(A)): # loop over length of row
+        for j in range(1, len(A[0])): # loop over length of column
+            A[i][j] = max(
+                A[i-1][j-1] + blosum[y[i-1]][x[j-1]],
+                A[i-1][j] + gap_penalty,
+                A[i][j-1] + gap_penalty
+            )
 
 x = dna['>Sphinx']
 y = dna['>Bandersnatch']
