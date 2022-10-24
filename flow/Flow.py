@@ -1,3 +1,4 @@
+import copy
 class Edge:
     def __init__(self, u, v, c):
         self.u = u
@@ -47,7 +48,18 @@ class FordFulkerson:
         self.max_flow = flow
         
     def min_cut(self, graph, source, sink):
-        return 0
+        cut = []
+        marked = set()
+        
+        self.augment(graph, source, sink, 1, marked, 1)
+
+        for i in range(len(graph.node_to_edge_list_dict)):
+            if i in marked:
+                for edge in graph.node_to_edge_list_dict[i].values():
+                    if edge.v not in marked:
+                        cut.append(edge)
+        self.min_cut = cut
+            
 
     def __init__(self, graph, source, sink):
         self.graph = graph
@@ -63,7 +75,7 @@ num_nodes = int(lines[0]) # n
 nodes = []
 for i in range(1, num_nodes+1):
     nodes.append(lines[i].strip()) # removes newlines
-# print("nodes", nodes)
+
 num_arcs = int(lines[num_nodes+1]) # m
 
 g = Graph(num_nodes)
@@ -78,8 +90,13 @@ for i in range(num_nodes+2, num_nodes+2+num_arcs):
         g.node_to_edge_list_dict[int(u)][int(v)] = (Edge(int(u), int(v), int(c)))
         g.node_to_edge_list_dict[int(v)][int(u)] = (Edge(int(v), int(u), int(c)))
 
+g2 = copy.deepcopy(g) # deep copy in order to "remember" edge capacities, as they are modified in the algorithm
 
 print("Ford-Fulkerson running on graph with", num_nodes, "nodes and", num_arcs, "arcs")
 FordFulkerson = FordFulkerson(g, 0, 54)
 print("max flow: ", FordFulkerson.max_flow)
-
+print("min cut:")
+for i in range(len(FordFulkerson.min_cut)):
+    u = FordFulkerson.min_cut[i].u
+    v = FordFulkerson.min_cut[i].v
+    print(f"{str(u)} {str(v)} {str(g2.node_to_edge_list_dict[u][v].c)}")
