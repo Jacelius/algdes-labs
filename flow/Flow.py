@@ -5,7 +5,7 @@ class Edge:
         self.v = v
         self.c = c
 
-    def __str__(self):
+    def __str__(self): # string representation of an edge
         return str(self.u) + "->" + str(self.v) + " c = " + str(self.c)
 
     def __repr__(self):
@@ -13,7 +13,7 @@ class Edge:
 
 class Graph:
     def __init__(self, num_nodes):
-        self.node_to_edge_list_dict = {} # node index key -> list of edges
+        self.node_to_edge_list_dict = {} # node index key -> dictionary of edges for that node
         for i in range(num_nodes):
             self.node_to_edge_list_dict[i] = {}
 
@@ -59,13 +59,11 @@ class FordFulkerson:
                     if edge.v not in marked:
                         cut.append(edge)
         self.min_cut = cut
-            
-
+        
     def __init__(self, graph, source, sink):
         self.graph = graph
         self.max_flow(graph, source, sink)
         self.min_cut(graph, source, sink)
-    
 
 # parsing
 with open('data/rail.txt') as f:
