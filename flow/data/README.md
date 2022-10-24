@@ -17,7 +17,6 @@ The file is created from Figure 7 in T.E. Harris, F.S. Ross, “Fundamentals of 
 The node DESTINATIONS was added with connections according to the figure legend, i.e., from Divisions 3, 6, 9 (Poland); B (Czechoslovovaka [sic]); and 2, 3 (Austria.)
 The two ORIGINS nodes in the figure were merged into one.
 
-
 ## results.txt
 
 The file “result.txt” describes a maximum flow of value 163 in the graph described by “rail.txt”
