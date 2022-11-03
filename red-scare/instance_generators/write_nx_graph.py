@@ -2,8 +2,8 @@ import networkx as nx
 
 def write_graph(G, name, s, t, W):
 # Write G to the data directory
-    filename = "../data/{0}.txt".format(name)
-    print "Writing "+ filename
+    filename = "./data/{0}.txt".format(name)
+    print ("Writing "+ filename)
     f = open(filename,'w')
     f.write("{0} {1} {2}\n{3} {4}\n".format(len(G),G.size(),len(W), s,t))
     for v in G:

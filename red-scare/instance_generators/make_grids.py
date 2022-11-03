@@ -1,9 +1,9 @@
 import sys
 import random
 import networkx as nx
-from write_nx_graph import write_graph
+from instance_generators.write_nx_graph import write_graph
 
-def rep((tuple)): return '{0}_{1}'.format(tuple[0], tuple[1])
+def rep(tuple): return '{0}_{1}'.format(tuple[0], tuple[1])
 
 def grid_graph(X,Y):
     G = nx.Graph()
