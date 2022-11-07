@@ -1,36 +1,41 @@
+from NoneXD import shortest_path
+
 # parse graphs
 def parse_word_graph():
-    with open("data/common-1-3000.txt") as f:
+    with open("red-scare/data/rusty-1-17.txt") as f:
         g = {} 
-        print("f", f.name)
         if "-1-" in f.name:
             k = 1
         else:
             k = 2
-        print("k", k)
-        
         lines = f.readlines()
         num_nodes, num_edges, num_red_nodes = lines[0].split()
-        start_node, end_node = lines[1].split() # common s, t: "start", "ender"
+        start_node, end_node = lines[1].split() # common: s, t == "start", "ender"
+        rednodes = []
         for i in range(2, int(num_nodes)+2):
             line = lines[i].split()
-            if (len(line) == 2): # red node found
+            if ("*" in line): # red node found
+                rednodes.append(line[0])
                 # add node to graph
                 g[line[0]] = {}
-                pass
-        # print("g", g)
-        # for each node, build edge to all nodes that are k-anagrams 
+            else: 
+                # add node to graph
+                g[line[0]] = {}
+        for i in range(int(num_nodes)+2, int(num_nodes)+2+int(num_edges)):
+            # build edges
+            u, v = lines[i].split(" -- ")
+            u = u.strip()
+            v = v.strip()
+            g[u][v] = 1
+            g[v][u] = 1 # reverse edge
+        return g, num_nodes, num_edges, rednodes, start_node, end_node
        
 
-parse_word_graph()
+g, num_nodes, num_edges, rednodes, start_node, end_node = parse_word_graph()
 
-def is_k_anagram(word1, word2, k): #Maybe fucky woky at some point because of sets idk tho lets hope not
-    if (len(set(word1) ^ set(word2)) <= k):
-        return True 
-    else:
-        return False
-
-print("k anagram test: ", is_k_anagram("runty", "enter", 1))
+# print shortest path
+sp = shortest_path(g, start_node, end_node, rednodes, int(num_edges))
+# print("length of shortest path with no red node ", sp)
 
 # run None, Some, Many, Few & Alternate on the graph 
 # it is allowed to run on some well defined class of graph only (e.g. all bipartite, acyclic, directed, or simply all graphs)
