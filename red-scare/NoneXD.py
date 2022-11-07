@@ -24,7 +24,6 @@ def shortest_path(G, s, t, R, num_edges):
         return -1
     if t in R or s in R:
         return -1
- 
     # Find shortest path from s to t, that avoids nodes in R
     # idea: remove nodes in R from G
     g_no_r = deepcopy(G)
@@ -35,11 +34,15 @@ def shortest_path(G, s, t, R, num_edges):
             if rnode in g_no_r[node]:
                 g_no_r[node].pop(rnode)
     # print("G, without red nodes: ", g_no_r)
-    #Run dijkstra on g
-    dist = dijkstra(g_no_r, s)
-    # dist_s_to_t = dist[s][t]
 
-    print("dist to t", dist[t])
+    #check if s has an edge to t in order to skip dijkstra 
+    if t in g_no_r[s]:
+        return 1
+
+    #Run dijkstra on g_no_r
+    dist = dijkstra(g_no_r, s)
+    if dist[t] == float('inf'):
+        return -1
     return dist[t]
 
 

@@ -13,6 +13,7 @@
 
 * words (5-letter) as vertices
 * edge joins u and v if: corresponding words are anagrams OR u and v differ in k positions
+* "weights 1"
 
 ### 3.1 rusty flavour
 
@@ -20,6 +21,8 @@
 * t: "rusty" - also only red vertex in graph
 
 ### 3.2 common flavour
+
+* None (shortest path avoiding red) is always impossible
 
 ## 4 grid graphs
 
@@ -38,6 +41,7 @@ implementation of __Some.py__ is especially tricky for this
 * made of bricks
 * bricks are walls of height 2
 * each wall has a single red vertex `w`, the right-most vertex at same level as vertex 0
+* what are n, p, z ? 
 
 ## 6 ski graphs
 

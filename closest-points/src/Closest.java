@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.awt.geom.Point2D;
+import java.text.DecimalFormat;
 
 public class Closest {
 
@@ -31,9 +32,11 @@ public class Closest {
         // Divide & Conquer algorithm: find the closest pair
         // sort coords by x axis
         coords.sort((Coord c1, Coord c2) -> Double.compare(c1.x, c2.x));
-        double sortedX = DivideAndConquerClosestPairs(coords);
+        double closest = DivideAndConquerClosestPairs(coords);
 
-        System.out.println(numpoints + " " + sortedX);
+        DecimalFormat df = new DecimalFormat("###.##############");
+        String formatted = df.format(closest);
+        System.out.println(numpoints + " " + formatted);
     }
 
     public static double ClosestPointsBrute(List<Coord> coords) {
@@ -80,7 +83,7 @@ public class Closest {
         // sort br by y axis
         br.sort((Coord c1, Coord c2) -> Double.compare(c1.y, c2.y));
 
-        // binary search for highest point in br min * 2min box
+        // search for highest point in br min * 2min box
         for (Coord coord : bl) {
             for (int i = 0; i < br.size(); i++) {
                 if (br.get(i).y >= (coord.y - min) && br.get(i).y <= (coord.y + min)) {
@@ -89,9 +92,7 @@ public class Closest {
             }
         }
 
-        // Output should be {filename} {dimension} {closets pair distance}
-
-        return min; // Change this when we have a resultx
+        return min;
     }
 
     public static class Coord {
