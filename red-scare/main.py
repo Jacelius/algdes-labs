@@ -1,8 +1,9 @@
 from NoneXD import shortest_path
+import time
 
 # parse graphs
-def parse_word_graph():
-    with open("data/wall-z-10000.txt") as f:
+def parse_graph(filename):
+    with open("data/" + filename) as f:
         g = {} 
         lines = f.readlines()
         num_nodes, num_edges, num_red_nodes = lines[0].split()
@@ -32,24 +33,31 @@ def parse_word_graph():
                 g[u][v] = 1 # no reverse edge
         return g, num_nodes, num_edges, rednodes, start_node, end_node
        
-def parse_number_graph():
-    with open ("data/grid-5-0.txt") as f:
-        g = {}
-        lines = f.readlines()
-        num_nodes, num_edges, num_red_nodes = lines[0].split()
-        start_node, end_node = lines[1].split()
+#Create a list of all filesnames in data folder 
+def get_files():
+    import os
+    files = []
+    for file in os.listdir("data"):
+        if file.endswith(".txt"):
+            files.append(file)
+    return files
+
+files = get_files()
+for file in files:
+    g, num_nodes, num_edges, rednodes, start_node, end_node = parse_graph(file)
+    start_time = time.time()
+    sp = shortest_path(g, start_node, end_node, rednodes, int(num_edges))
+    print(f"None res for {file}: {sp} in {time.time() - start_time}")
     
 
-g, num_nodes, num_edges, rednodes, start_node, end_node = parse_word_graph()
-
 # print shortest path
-sp = shortest_path(g, start_node, end_node, rednodes, int(num_edges))
-print("sp return ", sp)
+
 # print("length of shortest path with no red node ", sp)
 
 # run None, Some, Many, Few & Alternate on the graph 
 # it is allowed to run on some well defined class of graph only (e.g. all bipartite, acyclic, directed, or simply all graphs)
 
 # repeat for all graph types
+
 
 
