@@ -52,10 +52,10 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     #print("Graph: ", G)
     # sp = shortest_path(g, start_node, end_node, rednodes, int(num_edges))
     # print(f"None res for {file}: {sp} in {time.time() - start_time}")
-    # some = path_exists_including_red(G, start_node, end_node, rednodes)
-    # print(f"Some res for {file}: {some} in {time.time() - start_time}")
-    alternates = path_exists_alternating_red(G, start_node, end_node, rednodes)
-    print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
+    some = path_exists_including_red(G, start_node, end_node, rednodes)
+    print(f"Some res for {file}: {some} in {time.time() - start_time}")
+    # alternates = path_exists_alternating_red(G, start_node, end_node, rednodes)
+    # print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
 
 # it is allowed to run on some well defined class of graph only (e.g. all bipartite, acyclic, directed, or simply all graphs)
 
