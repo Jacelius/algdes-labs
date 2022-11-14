@@ -21,4 +21,4 @@ If you’re proficient with latex, the easiest way to make the report is to edit
 However, for my classes, you are welcome to ignore the latex source and do the whole report by hand or in whatever obscure word processor you want.
 It’s supposed to be a service, not a constraint.
 
-At some time in the future, the lab descriptions themselves will migrate to the doc directories as well.     
+At some time in the future, the lab descriptions themselves will migrate to the doc directories as well.
