@@ -1,5 +1,6 @@
 from NoneXD import shortest_path
 from Some import path_exists_including_red
+from Alternate import path_exists_alternating_red
 import time
 
 # parse graphs
@@ -44,22 +45,20 @@ def get_files():
     return files
 
 files = get_files()
-for file in files:
-    if(file != "bht.txt"):
-        G, num_nodes, num_edges, rednodes, start_node, end_node = parse_graph(file)
-        start_time = time.time()
-        #print("Graph: ", G)
-        # sp = shortest_path(g, start_node, end_node, rednodes, int(num_edges))
-        # print(f"None res for {file}: {sp} in {time.time() - start_time}")
-        some = path_exists_including_red(G, start_node, end_node, rednodes)
-        print(f"Some res for {file}: {some} in {time.time() - start_time}")
+for file in files: # run None, Some, Many, Few & Alternate on the graph 
+    #print ("flename: ", file)
+    G, num_nodes, num_edges, rednodes, start_node, end_node = parse_graph(file)
+    start_time = time.time()
+    #print("Graph: ", G)
+    # sp = shortest_path(g, start_node, end_node, rednodes, int(num_edges))
+    # print(f"None res for {file}: {sp} in {time.time() - start_time}")
+    # some = path_exists_including_red(G, start_node, end_node, rednodes)
+    # print(f"Some res for {file}: {some} in {time.time() - start_time}")
+    alternates = path_exists_alternating_red(G, start_node, end_node, rednodes)
+    print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
 
-# print shortest path
-
-# run None, Some, Many, Few & Alternate on the graph 
 # it is allowed to run on some well defined class of graph only (e.g. all bipartite, acyclic, directed, or simply all graphs)
 
-# repeat for all graph types
 
 
 

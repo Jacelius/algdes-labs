@@ -12,8 +12,7 @@ def does_path_contain_red(path, R):
     return False
 
 
-def depth_first_search(G, s, t, visited, path,R):
-    global all_paths
+def depth_first_search(G, s, t, visited, path, R):
     # Find all possible paths from 's' to 't'.
 
     visited[s] = True
@@ -36,7 +35,6 @@ def depth_first_search(G, s, t, visited, path,R):
 # return True if there is a path from s to t that includes at least one red node
 # otherwise return False
 def path_exists_including_red(G, s, t, R):
-    global all_paths
     # if we find a path, that doesn't include a red node, try again with a different path 
     # geeks for geeks idea
     """
