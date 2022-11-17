@@ -1,7 +1,9 @@
 from NoneXD import shortest_path
 from Some import path_exists_including_red
 from Alternate import path_exists_alternating_red
+from Few import min_red_on_any_path
 import time
+import os
 
 # parse graphs
 def parse_graph(filename):
@@ -37,7 +39,6 @@ def parse_graph(filename):
        
 #Create a list of all filesnames in data folder 
 def get_files():
-    import os
     files = []
     for file in os.listdir("data"):
         if file.endswith(".txt"):
@@ -45,17 +46,41 @@ def get_files():
     return files
 
 files = get_files()
+# files.remove("bht.txt")
+# files = ["miniDAG.txt"]
+Few_results = []
+NoneXD_results = []
 for file in files: # run None, Some, Many, Few & Alternate on the graph 
-    #print ("flename: ", file)
     G, num_nodes, num_edges, rednodes, start_node, end_node = parse_graph(file)
+    #Check if graph has cycles
+    
+    print("filename: ", file)
     start_time = time.time()
     #print("Graph: ", G)
-    # sp = shortest_path(g, start_node, end_node, rednodes, int(num_edges))
-    # print(f"None res for {file}: {sp} in {time.time() - start_time}")
-    some = path_exists_including_red(G, start_node, end_node, rednodes)
-    print(f"Some res for {file}: {some} in {time.time() - start_time}")
+
+    #None:
+    # sp = shortest_path(G, start_node, end_node, rednodes, int(num_edges))
+    #print(f"None res for {file}: {sp} in {time.time() - start_time}")
+
+    #Some:
+    #some = path_exists_including_red(G, start_node, end_node, rednodes)
+    #print(f"Some res for {file}: {some} in {time.time() - start_time}")
+
+    #Alternate:
     # alternates = path_exists_alternating_red(G, start_node, end_node, rednodes)
     # print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
+
+    #Few:
+    few = min_red_on_any_path(G, start_node, end_node,num_nodes, rednodes)
+    print(f"Few res for {file}: {few} in {time.time() - start_time} seconds")
+    # Few_results.append(few)
+    # NoneXD_results.append(sp)
+
+    #Many:
+# count number of occources of 0 in Few_results and NoneXD_results
+# print("Few: -1s", Few_results.count(-1))
+# no_paths_in_none = NoneXD_results.count(-1)
+# print("NoneXD no_paths: ", no_paths_in_none)
 
 # it is allowed to run on some well defined class of graph only (e.g. all bipartite, acyclic, directed, or simply all graphs)
 

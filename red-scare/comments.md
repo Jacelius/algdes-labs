@@ -41,7 +41,7 @@ implementation of __Some.py__ is especially tricky for this
 * made of bricks
 * bricks are walls of height 2
 * each wall has a single red vertex `w`, the right-most vertex at same level as vertex 0
-* what are n, p, z ? 
+* what are n, p, z ?
 
 ## 6 ski graphs
 

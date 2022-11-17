@@ -30,7 +30,7 @@ def dfs(G, s, t): # Depth first search that returns true if a path exists from s
                 stack.append(neighbor)
     return False
 
-def depth_first_search(G, s, t, visited, path, R):
+def depth_first_search_check_red(G, s, t, visited, path, R):
     # Find all possible paths from 's' to 't'.
 
     visited[s] = True
@@ -48,7 +48,7 @@ def depth_first_search(G, s, t, visited, path, R):
     else: 
         for v in G[s]:
             if (visited[v] == False):
-                depth_first_search(G, v, t, visited, path, R)
+                depth_first_search_check_red(G, v, t, visited, path, R)
 
     path.pop()
     visited[s] = False
@@ -63,7 +63,7 @@ def path_exists_including_red(G, s, t, R):
         visited[node] = False
     path = []
     try:
-        depth_first_search(G, s, t, visited, path, R)
+        depth_first_search_check_red(G, s, t, visited, path, R)
         return False
     except redPathFound:
         return True
