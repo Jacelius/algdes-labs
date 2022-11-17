@@ -9,9 +9,10 @@ def dijkstra(G, s):
         u = min(Q, key=dist.get)
         Q.remove(u)
         for v in G[u]:
-            alt = dist[u] + G[u][v]
-            if alt < dist[v]:
-                dist[v] = alt
+            if v != "isRed":
+                alt = dist[u] + G[u][v]
+                if alt < dist[v]:
+                    dist[v] = alt
     return dist
 
 # return the length of the shortest s, t path

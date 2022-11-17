@@ -12,16 +12,16 @@ def parse_graph(filename):
         lines = f.readlines()
         num_nodes, num_edges, num_red_nodes = lines[0].split()
         start_node, end_node = lines[1].split() # common: s, t == "start", "ender"
-        rednodes = []
         for i in range(2, int(num_nodes)+2):
             line = lines[i].split()
             if ("*" in line): # red node found
-                rednodes.append(line[0])
                 # add node to graph
                 g[line[0]] = {}
+                g[line[0]]["isRed"] = True
             else: 
                 # add node to graph
                 g[line[0]] = {}
+                g[line[0]]["isRed"] = False
         for i in range(int(num_nodes)+2, int(num_nodes)+2+int(num_edges)):
             if(' -- ' in lines[i]):
                 # build edges
@@ -35,7 +35,7 @@ def parse_graph(filename):
                 u = u.strip()
                 v = v.strip()
                 g[u][v] = 1 # no reverse edge
-        return g, num_nodes, num_edges, rednodes, start_node, end_node
+        return g, num_nodes, num_edges, start_node, end_node
        
 #Create a list of all filesnames in data folder 
 def get_files():
@@ -47,16 +47,16 @@ def get_files():
 
 files = get_files()
 # files.remove("bht.txt")
-# files = ["miniDAG.txt"]
+# files = ["increase-n500-1.txt"]
 Few_results = []
 NoneXD_results = []
 for file in files: # run None, Some, Many, Few & Alternate on the graph 
-    G, num_nodes, num_edges, rednodes, start_node, end_node = parse_graph(file)
+    G, num_nodes, num_edges, start_node, end_node = parse_graph(file)
     #Check if graph has cycles
     
-    print("filename: ", file)
+    #print("filename: ", file)
     start_time = time.time()
-    #print("Graph: ", G)
+    # print("Graph: ", G)
 
     #None:
     # sp = shortest_path(G, start_node, end_node, rednodes, int(num_edges))
@@ -71,7 +71,7 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     # print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
 
     #Few:
-    few = min_red_on_any_path(G, start_node, end_node,num_nodes, rednodes)
+    few = min_red_on_any_path(G, start_node, end_node,num_nodes)
     print(f"Few res for {file}: {few} in {time.time() - start_time} seconds")
     # Few_results.append(few)
     # NoneXD_results.append(sp)
