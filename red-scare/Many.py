@@ -18,7 +18,7 @@ def find_all_paths_dfs(G, s, t, visited, path, max_count):
     # current path[]
     # print("s, t: ", s, t)
     if s == t:
-        #print("found path")
+        # print("found path")
         red_count = count_reds_in_path(G, path)
         #print("current red count: ", red_count)
         if red_count == max_count:
@@ -46,40 +46,13 @@ def count_reds_in_graph(G):
 
 # Return the maximum number of red vertices on any path from s to t
 def max_red_on_any_path(G, s, t):
-    visited = deepcopy(G)
+    global max_red_path
+    max_red_path = 0
     path = []
-    for node in visited:
-        visited[node] = False
-    if is_undirected(G) == True:
-        if count_reds_in_graph(G) > 0:
-            return float("inf")
-        else:
-            res = dijkstra(G)
-            if res[s][t] != float("inf"): # if infinite, no path was found
-                return 0 # path exists with no reds
-            else:
-                return -1
-    else:
-        if not does_graph_contain_cycle(G):
-            # DAG
-            # find all paths from s to t
-            global max_red_path
-            max_red_path = 0
-            max_count = count_reds_in_graph(G)
-            try:
-                find_all_paths_dfs(G, s, t, visited, path, max_count)
-                return max_red_path
-            except ManyRedException:
-                return max_count
-            # find the max number of reds in any path
-        else:
-            # Directed Cyclic world
-            # remove cycles
-            # find all cycles
-            list_of_cycles = nx.simple_cycles(graph_to_nx(G))
-            for cycle in list_of_cycles:
-                #remove edge from last element to first element
-                G[cycle[-1]].remove(cycle[0])
-            # find all paths from s to t
-            # find the max number of reds in any path
-    pass
+    g_nx = graph_to_nx(G)
+    all_simple_paths = nx.all_simple_paths(g_nx, s, t, cutoff=30)
+    for path in all_simple_paths:
+        red_count = count_reds_in_path(G, path)
+        if red_count > max_red_path:
+            print("new max red path: ", max_red_path)
+            max_red_path = red_count

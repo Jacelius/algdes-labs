@@ -58,13 +58,14 @@ def get_files():
 files = get_files()
 # files.remove("bht.txt")
 # files = remove_increase(files)
-
+# files.remove("miniDCG.txt")
+files = ["gnm-1000-2000-1.txt"]
 # files = ["G-ex.txt"]
 Few_results = []
 NoneXD_results = []
 
-should_write = int(input("Press 1 to write to file or enter to print to terminal: "))
-if should_write != 1:
+should_write = input("Press 1 to write to file or enter to print to terminal: ")
+if should_write != '1':
     print("Not writing to file")  
 else:
     file_to_delete = open("results.txt",'w')
@@ -72,6 +73,8 @@ else:
 
 for file in files: # run None, Some, Many, Few & Alternate on the graph 
     G, num_nodes, num_edges, start_node, end_node = parse_graph(file)
+
+    print('starting on ', file)
 
     start_time = time.time()
 
@@ -100,26 +103,14 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
     print(many_res)
     
-    if should_write == 1:
+    if should_write == '1':
         with open("results.txt", "a") as f:
             f.write(none_res + "\n")
             f.write(some_res + "\n")
             f.write(alternates_res + "\n")
             f.write(few_res + "\n")
             f.write(many_res + "\n\n")
+            
+    print("\n")
     
     time.sleep(0.01)
-    
-    
-
-
-# count number of occources of 0 in Few_results and NoneXD_results
-# print("Few: -1s", Few_results.count(-1))
-# no_paths_in_none = NoneXD_results.count(-1)
-# print("NoneXD no_paths: ", no_paths_in_none)
-
-# it is allowed to run on some well defined class of graph only (e.g. all bipartite, acyclic, directed, or simply all graphs)
-
-
-
-
