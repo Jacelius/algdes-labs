@@ -43,7 +43,7 @@ def min_red_on_any_path(G, s, t, num_nodes):
     if t in G[s]: # s has a direct edge to t
         return mincount
     if not is_undirected(G) and not does_graph_contain_cycle(G):
-        #Run dijksta to make sure a path exists
+        #Run dijkstra to make sure a path exists
         #print("distance to t", dist[t])
         # print("Graph is DAG")
         global least_red_path
@@ -65,5 +65,5 @@ def min_red_on_any_path(G, s, t, num_nodes):
             return least_red_path
     else: 
         # print("graph is not DAG")
-        return -1 
+        return "???" 
     
