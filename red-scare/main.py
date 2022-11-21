@@ -57,41 +57,61 @@ def get_files():
 
 files = get_files()
 # files.remove("bht.txt")
-files = remove_increase(files)
+# files = remove_increase(files)
 
 # files = ["G-ex.txt"]
 Few_results = []
 NoneXD_results = []
+
+should_write = int(input("Press 1 to write to file or enter to print to terminal: "))
+if should_write != 1:
+    print("Not writing to file")  
+else:
+    file_to_delete = open("results.txt",'w')
+    file_to_delete.close()  
+
 for file in files: # run None, Some, Many, Few & Alternate on the graph 
     G, num_nodes, num_edges, start_node, end_node = parse_graph(file)
-    #Check if graph has cycles
 
     start_time = time.time()
-    # print("Graph: ", G)
 
     #None:
-    # sp = shortest_path(G, start_node, end_node, int(num_edges))
-    # print(f"None res for {file}: {sp} in {time.time() - start_time}")
+    none = shortest_path(G, start_node, end_node, int(num_edges))
+    none_res = f"None res for {file}: {none} in {time.time() - start_time} seconds"
+    print(none_res)
 
     # #Some:
-    # some = path_exists_including_red(G, start_node, end_node)
-    # print(f"Some res for {file}: {some} in {time.time() - start_time}")
+    some = path_exists_including_red(G, start_node, end_node)
+    some_res = f"Some res for {file}: {some} in {time.time() - start_time} seconds"
+    print(some_res)
 
     # #Alternate:
     alternates = path_exists_alternating_red(G, start_node, end_node)
-    print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
+    alternates_res = f"Alternate res for {file}: {alternates} in {time.time() - start_time} seconds"
+    print(alternates_res)
 
     #Few:
-    # few = min_red_on_any_path(G, start_node, end_node,num_nodes)
-    # print(f"Few res for {file}: {few} in {time.time() - start_time} seconds")
-    # Few_results.append(few)
-    # NoneXD_results.append(sp)
+    few = min_red_on_any_path(G, start_node, end_node,num_nodes)
+    few_res = f"Few res for {file}: {few} in {time.time() - start_time} seconds"
+    print(few_res)
     
     #Many:
-    # many = max_red_on_any_path(G, start_node, end_node)
-    # print(f"Many res for {file}: {many} in {time.time() - start_time} seconds")
-    # Few_results.append(few)
-    # NoneXD_results.append(sp)
+    many = max_red_on_any_path(G, start_node, end_node)
+    many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+    print(many_res)
+    
+    if should_write == 1:
+        with open("results.txt", "a") as f:
+            f.write(none_res + "\n")
+            f.write(some_res + "\n")
+            f.write(alternates_res + "\n")
+            f.write(few_res + "\n")
+            f.write(many_res + "\n\n")
+    
+    time.sleep(0.01)
+    
+    
+
 
 # count number of occources of 0 in Few_results and NoneXD_results
 # print("Few: -1s", Few_results.count(-1))

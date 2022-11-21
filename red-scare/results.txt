@@ -1,0 +1,828 @@
+None res for rusty-2-2000.txt: 5 in 0.15340900421142578 seconds
+Some res for rusty-2-2000.txt: True in 0.18021774291992188 seconds
+Alternate res for rusty-2-2000.txt: False in 0.21042585372924805 seconds
+Few res for rusty-2-2000.txt: -1 in 0.21045684814453125 seconds
+Many res for rusty-2-2000.txt: inf in 0.23639869689941406 seconds
+
+None res for wall-p-3.txt: 1 in 8.487701416015625e-05 seconds
+Some res for wall-p-3.txt: True in 0.0002028942108154297 seconds
+Alternate res for wall-p-3.txt: False in 0.00029397010803222656 seconds
+Few res for wall-p-3.txt: 0 in 0.0003020763397216797 seconds
+Many res for wall-p-3.txt: inf in 0.00037384033203125 seconds
+
+None res for ski-level20-3.txt: -1 in 0.0020380020141601562 seconds
+Some res for ski-level20-3.txt: False in 0.0026941299438476562 seconds
+Alternate res for ski-level20-3.txt: False in 0.0034360885620117188 seconds
+Few res for ski-level20-3.txt: -1 in 0.005629301071166992 seconds
+Many res for ski-level20-3.txt: 0 in 0.007594108581542969 seconds
+
+None res for gnm-1000-2000-1.txt: -1 in 4.291534423828125e-06 seconds
+Some res for gnm-1000-2000-1.txt: True in 0.0045392513275146484 seconds
+Alternate res for gnm-1000-2000-1.txt: False in 0.009287357330322266 seconds
+Few res for gnm-1000-2000-1.txt: -1 in 0.009303092956542969 seconds
+Many res for gnm-1000-2000-1.txt: inf in 0.013226032257080078 seconds
+
+None res for gnm-3000-6000-0.txt: 6 in 0.2550358772277832 seconds
+Some res for gnm-3000-6000-0.txt: True in 0.26638317108154297 seconds
+Alternate res for gnm-3000-6000-0.txt: False in 0.2792699337005615 seconds
+Few res for gnm-3000-6000-0.txt: -1 in 0.27928972244262695 seconds
+Many res for gnm-3000-6000-0.txt: inf in 0.2908339500427246 seconds
+
+None res for dodecahedron.txt: -1 in 4.291534423828125e-06 seconds
+Some res for dodecahedron.txt: True in 0.00011539459228515625 seconds
+Alternate res for dodecahedron.txt: False in 0.0002193450927734375 seconds
+Few res for dodecahedron.txt: 2 in 0.00022912025451660156 seconds
+Many res for dodecahedron.txt: inf in 0.00031113624572753906 seconds
+
+None res for common-2-2500.txt: -1 in 6.9141387939453125e-06 seconds
+Some res for common-2-2500.txt: True in 0.0493772029876709 seconds
+Alternate res for common-2-2500.txt: True in 0.10364603996276855 seconds
+Few res for common-2-2500.txt: -1 in 0.10367703437805176 seconds
+Many res for common-2-2500.txt: inf in 0.1455550193786621 seconds
+
+None res for wall-n-1000.txt: 1 in 0.028442859649658203 seconds
+Some res for wall-n-1000.txt: True in 0.068206787109375 seconds
+Alternate res for wall-n-1000.txt: False in 0.09973573684692383 seconds
+Few res for wall-n-1000.txt: 0 in 0.09976673126220703 seconds
+Many res for wall-n-1000.txt: inf in 0.12578988075256348 seconds
+
+None res for gnm-3000-6000-1.txt: -1 in 5.9604644775390625e-06 seconds
+Some res for gnm-3000-6000-1.txt: True in 0.013853073120117188 seconds
+Alternate res for gnm-3000-6000-1.txt: False in 0.029558181762695312 seconds
+Few res for gnm-3000-6000-1.txt: -1 in 0.029591798782348633 seconds
+Many res for gnm-3000-6000-1.txt: inf in 0.04223489761352539 seconds
+
+None res for gnm-1000-2000-0.txt: 7 in 0.02651810646057129 seconds
+Some res for gnm-1000-2000-0.txt: True in 0.03125715255737305 seconds
+Alternate res for gnm-1000-2000-0.txt: False in 0.03640127182006836 seconds
+Few res for gnm-1000-2000-0.txt: -1 in 0.036437034606933594 seconds
+Many res for gnm-1000-2000-0.txt: inf in 0.04050421714782715 seconds
+
+None res for ski-level20-2.txt: -1 in 4.76837158203125e-06 seconds
+Some res for ski-level20-2.txt: True in 0.0006868839263916016 seconds
+Alternate res for ski-level20-2.txt: False in 0.0014529228210449219 seconds
+Few res for ski-level20-2.txt: 9 in 0.0046389102935791016 seconds
+Many res for ski-level20-2.txt: 14 in 0.007882833480834961 seconds
+
+None res for wall-p-2.txt: 1 in 5.698204040527344e-05 seconds
+Some res for wall-p-2.txt: True in 0.00013685226440429688 seconds
+Alternate res for wall-p-2.txt: False in 0.00019502639770507812 seconds
+Few res for wall-p-2.txt: 0 in 0.00020194053649902344 seconds
+Many res for wall-p-2.txt: inf in 0.00025010108947753906 seconds
+
+None res for common-1-5000.txt: -1 in 4.76837158203125e-06 seconds
+Some res for common-1-5000.txt: True in 0.023511886596679688 seconds
+Alternate res for common-1-5000.txt: True in 0.05110001564025879 seconds
+Few res for common-1-5000.txt: -1 in 0.051126718521118164 seconds
+Many res for common-1-5000.txt: inf in 0.07591676712036133 seconds
+
+None res for common-1-1500.txt: -1 in 5.0067901611328125e-06 seconds
+Some res for common-1-1500.txt: False in 0.004200935363769531 seconds
+Alternate res for common-1-1500.txt: False in 0.008958101272583008 seconds
+Few res for common-1-1500.txt: -1 in 0.008980989456176758 seconds
+Many res for common-1-1500.txt: inf in 0.012990951538085938 seconds
+
+None res for ski-level20-1.txt: -1 in 0.0014181137084960938 seconds
+Some res for ski-level20-1.txt: True in 0.0021119117736816406 seconds
+Alternate res for ski-level20-1.txt: False in 0.002866983413696289 seconds
+Few res for ski-level20-1.txt: 3 in 0.007075071334838867 seconds
+Many res for ski-level20-1.txt: 10 in 0.011210918426513672 seconds
+
+None res for wall-p-1.txt: 1 in 4.291534423828125e-05 seconds
+Some res for wall-p-1.txt: True in 0.00010704994201660156 seconds
+Alternate res for wall-p-1.txt: False in 0.00015115737915039062 seconds
+Few res for wall-p-1.txt: 0 in 0.0001583099365234375 seconds
+Many res for wall-p-1.txt: inf in 0.00019311904907226562 seconds
+
+None res for grid-25-0.txt: 324 in 0.006936073303222656 seconds
+Some res for grid-25-0.txt: True in 0.010285139083862305 seconds
+Alternate res for grid-25-0.txt: True in 0.013910055160522461 seconds
+Few res for grid-25-0.txt: -1 in 0.013923168182373047 seconds
+Many res for grid-25-0.txt: inf in 0.01714611053466797 seconds
+
+None res for common-1-3500.txt: -1 in 4.76837158203125e-06 seconds
+Some res for common-1-3500.txt: True in 0.014083623886108398 seconds
+Alternate res for common-1-3500.txt: False in 0.03048396110534668 seconds
+Few res for common-1-3500.txt: -1 in 0.03051590919494629 seconds
+Many res for common-1-3500.txt: inf in 0.0445098876953125 seconds
+
+None res for gnm-5000-7500-1.txt: -1 in 6.9141387939453125e-06 seconds
+Some res for gnm-5000-7500-1.txt: False in 0.018053770065307617 seconds
+Alternate res for gnm-5000-7500-1.txt: False in 0.0401918888092041 seconds
+Few res for gnm-5000-7500-1.txt: -1 in 0.040222883224487305 seconds
+Many res for gnm-5000-7500-1.txt: inf in 0.06245088577270508 seconds
+
+None res for wall-z-1000.txt: 1 in 0.022861957550048828 seconds
+Some res for wall-z-1000.txt: True in 0.0531618595123291 seconds
+Alternate res for wall-z-1000.txt: False in 0.0792689323425293 seconds
+Few res for wall-z-1000.txt: 0 in 0.0792999267578125 seconds
+Many res for wall-z-1000.txt: inf in 0.10228300094604492 seconds
+
+None res for smallworld-20-1.txt: -1 in 7.152557373046875e-06 seconds
+Some res for smallworld-20-1.txt: True in 0.0021469593048095703 seconds
+Alternate res for smallworld-20-1.txt: True in 0.0046939849853515625 seconds
+Few res for smallworld-20-1.txt: -1 in 0.004714012145996094 seconds
+Many res for smallworld-20-1.txt: inf in 0.006589174270629883 seconds
+
+None res for smallworld-20-0.txt: 8 in 0.005632162094116211 seconds
+Some res for smallworld-20-0.txt: True in 0.007556915283203125 seconds
+Alternate res for smallworld-20-0.txt: False in 0.009982109069824219 seconds
+Few res for smallworld-20-0.txt: -1 in 0.01001596450805664 seconds
+Many res for smallworld-20-0.txt: inf in 0.012141942977905273 seconds
+
+None res for rusty-1-3000.txt: 14 in 0.2740499973297119 seconds
+Some res for rusty-1-3000.txt: True in 0.2846190929412842 seconds
+Alternate res for rusty-1-3000.txt: False in 0.29578185081481934 seconds
+Few res for rusty-1-3000.txt: -1 in 0.2958090305328369 seconds
+Many res for rusty-1-3000.txt: inf in 0.30564188957214355 seconds
+
+None res for gnm-5000-7500-0.txt: -1 in 0.619312047958374 seconds
+Some res for gnm-5000-7500-0.txt: False in 0.6357021331787109 seconds
+Alternate res for gnm-5000-7500-0.txt: False in 0.655055046081543 seconds
+Few res for gnm-5000-7500-0.txt: -1 in 0.6550791263580322 seconds
+Many res for gnm-5000-7500-0.txt: inf in 0.6700630187988281 seconds
+
+None res for wall-p-4.txt: 1 in 0.000102996826171875 seconds
+Some res for wall-p-4.txt: True in 0.0002472400665283203 seconds
+Alternate res for wall-p-4.txt: False in 0.0003559589385986328 seconds
+Few res for wall-p-4.txt: 0 in 0.00036525726318359375 seconds
+Many res for wall-p-4.txt: inf in 0.00045609474182128906 seconds
+
+None res for grid-25-1.txt: 123 in 0.0068738460540771484 seconds
+Some res for grid-25-1.txt: True in 0.010242938995361328 seconds
+Alternate res for grid-25-1.txt: True in 0.014132976531982422 seconds
+Few res for grid-25-1.txt: -1 in 0.01415395736694336 seconds
+Many res for grid-25-1.txt: inf in 0.01723194122314453 seconds
+
+None res for common-2-20.txt: -1 in 4.0531158447265625e-06 seconds
+Some res for common-2-20.txt: False in 8.082389831542969e-05 seconds
+Alternate res for common-2-20.txt: False in 0.00014591217041015625 seconds
+Few res for common-2-20.txt: -1 in 0.00015473365783691406 seconds
+Many res for common-2-20.txt: inf in 0.00020503997802734375 seconds
+
+None res for gnm-2000-3000-1.txt: -1 in 4.291534423828125e-06 seconds
+Some res for gnm-2000-3000-1.txt: True in 0.008163213729858398 seconds
+Alternate res for gnm-2000-3000-1.txt: True in 0.016695261001586914 seconds
+Few res for gnm-2000-3000-1.txt: -1 in 0.016719341278076172 seconds
+Many res for gnm-2000-3000-1.txt: inf in 0.023441314697265625 seconds
+
+None res for wall-p-1000.txt: 1 in 0.0194399356842041 seconds
+Some res for wall-p-1000.txt: True in 0.05133199691772461 seconds
+Alternate res for wall-p-1000.txt: False in 0.07328605651855469 seconds
+Few res for wall-p-1000.txt: 0 in 0.07331585884094238 seconds
+Many res for wall-p-1000.txt: inf in 0.09177708625793457 seconds
+
+None res for gnm-4000-6000-1.txt: -1 in 3.814697265625e-06 seconds
+Some res for gnm-4000-6000-1.txt: True in 0.016269922256469727 seconds
+Alternate res for gnm-4000-6000-1.txt: False in 0.034113168716430664 seconds
+Few res for gnm-4000-6000-1.txt: -1 in 0.03414106369018555 seconds
+Many res for gnm-4000-6000-1.txt: inf in 0.04820418357849121 seconds
+
+None res for rusty-2-4500.txt: 4 in 0.8513889312744141 seconds
+Some res for rusty-2-4500.txt: True in 1.0030889511108398 seconds
+Alternate res for rusty-2-4500.txt: False in 1.1706469058990479 seconds
+Few res for rusty-2-4500.txt: -1 in 1.1706819534301758 seconds
+Many res for rusty-2-4500.txt: inf in 1.3057279586791992 seconds
+
+None res for common-2-250.txt: -1 in 8.344650268554688e-06 seconds
+Some res for common-2-250.txt: False in 0.00096893310546875 seconds
+Alternate res for common-2-250.txt: False in 0.002022266387939453 seconds
+Few res for common-2-250.txt: -1 in 0.0020341873168945312 seconds
+Many res for common-2-250.txt: inf in 0.002969026565551758 seconds
+
+None res for gnm-10-15-0.txt: 1 in 6.29425048828125e-05 seconds
+Some res for gnm-10-15-0.txt: True in 0.00014281272888183594 seconds
+Alternate res for gnm-10-15-0.txt: False in 0.00020313262939453125 seconds
+Few res for gnm-10-15-0.txt: 0 in 0.00021004676818847656 seconds
+Many res for gnm-10-15-0.txt: inf in 0.0002598762512207031 seconds
+
+None res for wall-z-10000.txt: 1 in 0.2439870834350586 seconds
+Some res for wall-z-10000.txt: True in 0.6098792552947998 seconds
+Alternate res for wall-z-10000.txt: False in 0.8980081081390381 seconds
+Few res for wall-z-10000.txt: 0 in 0.8980429172515869 seconds
+Many res for wall-z-10000.txt: inf in 1.1257531642913818 seconds
+
+None res for gnm-10-15-1.txt: -1 in 8.106231689453125e-06 seconds
+Some res for gnm-10-15-1.txt: True in 0.00010514259338378906 seconds
+Alternate res for gnm-10-15-1.txt: True in 0.00017213821411132812 seconds
+Few res for gnm-10-15-1.txt: 1 in 0.0001800060272216797 seconds
+Many res for gnm-10-15-1.txt: inf in 0.00023102760314941406 seconds
+
+None res for gnm-4000-6000-0.txt: 7 in 0.4498629570007324 seconds
+Some res for gnm-4000-6000-0.txt: True in 0.4647958278656006 seconds
+Alternate res for gnm-4000-6000-0.txt: False in 0.4818120002746582 seconds
+Few res for gnm-4000-6000-0.txt: -1 in 0.4818429946899414 seconds
+Many res for gnm-4000-6000-0.txt: inf in 0.4961059093475342 seconds
+
+None res for common-2-4000.txt: -1 in 7.867813110351562e-06 seconds
+Some res for common-2-4000.txt: True in 0.1129601001739502 seconds
+Alternate res for common-2-4000.txt: True in 0.24723315238952637 seconds
+Few res for common-2-4000.txt: -1 in 0.24727201461791992 seconds
+Many res for common-2-4000.txt: inf in 0.35309600830078125 seconds
+
+None res for bht.txt: 6 in 1.0965840816497803 seconds
+Some res for bht.txt: True in 1.1248650550842285 seconds
+Alternate res for bht.txt: False in 1.1568901538848877 seconds
+Few res for bht.txt: -1 in 1.156921148300171 seconds
+Many res for bht.txt: inf in 1.1839351654052734 seconds
+
+None res for grid-25-2.txt: -1 in 0.00648808479309082 seconds
+Some res for grid-25-2.txt: True in 0.009984970092773438 seconds
+Alternate res for grid-25-2.txt: True in 0.013848066329956055 seconds
+Few res for grid-25-2.txt: -1 in 0.013864278793334961 seconds
+Many res for grid-25-2.txt: inf in 0.01700615882873535 seconds
+
+None res for gnm-2000-3000-0.txt: 8 in 0.09552812576293945 seconds
+Some res for gnm-2000-3000-0.txt: True in 0.10245394706726074 seconds
+Alternate res for gnm-2000-3000-0.txt: False in 0.10987687110900879 seconds
+Few res for gnm-2000-3000-0.txt: -1 in 0.10990500450134277 seconds
+Many res for gnm-2000-3000-0.txt: inf in 0.11644792556762695 seconds
+
+None res for rusty-2-5757.txt: 4 in 1.3648877143859863 seconds
+Some res for rusty-2-5757.txt: True in 1.5883269309997559 seconds
+Alternate res for rusty-2-5757.txt: False in 1.8498408794403076 seconds
+Few res for rusty-2-5757.txt: -1 in 1.8498797416687012 seconds
+Many res for rusty-2-5757.txt: inf in 2.0893146991729736 seconds
+
+None res for wall-n-4.txt: 1 in 0.00021719932556152344 seconds
+Some res for wall-n-4.txt: True in 0.0005202293395996094 seconds
+Alternate res for wall-n-4.txt: False in 0.0009012222290039062 seconds
+Few res for wall-n-4.txt: 0 in 0.0009200572967529297 seconds
+Many res for wall-n-4.txt: inf in 0.0012049674987792969 seconds
+
+None res for common-2-50.txt: -1 in 4.0531158447265625e-06 seconds
+Some res for common-2-50.txt: False in 0.000148773193359375 seconds
+Alternate res for common-2-50.txt: False in 0.000308990478515625 seconds
+Few res for common-2-50.txt: -1 in 0.0003249645233154297 seconds
+Many res for common-2-50.txt: inf in 0.0004398822784423828 seconds
+
+None res for gnm-3000-4500-1.txt: -1 in 0.07196593284606934 seconds
+Some res for gnm-3000-4500-1.txt: True in 0.08336400985717773 seconds
+Alternate res for gnm-3000-4500-1.txt: False in 0.09684872627258301 seconds
+Few res for gnm-3000-4500-1.txt: -1 in 0.0968790054321289 seconds
+Many res for gnm-3000-4500-1.txt: inf in 0.10701370239257812 seconds
+
+None res for gnm-1000-1500-0.txt: -1 in 0.02541804313659668 seconds
+Some res for gnm-1000-1500-0.txt: True in 0.029397010803222656 seconds
+Alternate res for gnm-1000-1500-0.txt: False in 0.0332942008972168 seconds
+Few res for gnm-1000-1500-0.txt: -1 in 0.033307790756225586 seconds
+Many res for gnm-1000-1500-0.txt: inf in 0.036618947982788086 seconds
+
+None res for wall-p-10000.txt: 1 in 0.2095348834991455 seconds
+Some res for wall-p-10000.txt: True in 0.5961358547210693 seconds
+Alternate res for wall-p-10000.txt: False in 0.8457720279693604 seconds
+Few res for wall-p-10000.txt: 0 in 0.8458099365234375 seconds
+Many res for wall-p-10000.txt: inf in 1.0514647960662842 seconds
+
+None res for rusty-1-3500.txt: 14 in 0.3809499740600586 seconds
+Some res for rusty-1-3500.txt: True in 0.3934037685394287 seconds
+Alternate res for rusty-1-3500.txt: False in 0.4075467586517334 seconds
+Few res for rusty-1-3500.txt: -1 in 0.40757203102111816 seconds
+Many res for rusty-1-3500.txt: inf in 0.41902899742126465 seconds
+
+None res for gnm-1000-1500-1.txt: -1 in 0.009863138198852539 seconds
+Some res for gnm-1000-1500-1.txt: True in 0.013453006744384766 seconds
+Alternate res for gnm-1000-1500-1.txt: False in 0.017621994018554688 seconds
+Few res for gnm-1000-1500-1.txt: -1 in 0.017635107040405273 seconds
+Many res for gnm-1000-1500-1.txt: inf in 0.021345138549804688 seconds
+
+None res for gnm-3000-4500-0.txt: 10 in 0.25081515312194824 seconds
+Some res for gnm-3000-4500-0.txt: True in 0.2613189220428467 seconds
+Alternate res for gnm-3000-4500-0.txt: False in 0.2733609676361084 seconds
+Few res for gnm-3000-4500-0.txt: -1 in 0.2733891010284424 seconds
+Many res for gnm-3000-4500-0.txt: inf in 0.28245091438293457 seconds
+
+None res for common-1-3000.txt: -1 in 3.814697265625e-06 seconds
+Some res for common-1-3000.txt: True in 0.010874032974243164 seconds
+Alternate res for common-1-3000.txt: False in 0.022921085357666016 seconds
+Few res for common-1-3000.txt: -1 in 0.022945880889892578 seconds
+Many res for common-1-3000.txt: inf in 0.03295588493347168 seconds
+
+None res for common-2-4500.txt: -1 in 7.152557373046875e-06 seconds
+Some res for common-2-4500.txt: True in 0.1473860740661621 seconds
+Alternate res for common-2-4500.txt: True in 0.3211209774017334 seconds
+Few res for common-2-4500.txt: -1 in 0.32116007804870605 seconds
+Many res for common-2-4500.txt: inf in 0.454160213470459 seconds
+
+None res for gnm-2000-4000-1.txt: 5 in 0.037261962890625 seconds
+Some res for gnm-2000-4000-1.txt: True in 0.04639482498168945 seconds
+Alternate res for gnm-2000-4000-1.txt: False in 0.05648398399353027 seconds
+Few res for gnm-2000-4000-1.txt: -1 in 0.05651283264160156 seconds
+Many res for gnm-2000-4000-1.txt: inf in 0.06564211845397949 seconds
+
+None res for common-2-5757.txt: -1 in 7.152557373046875e-06 seconds
+Some res for common-2-5757.txt: True in 0.21641111373901367 seconds
+Alternate res for common-2-5757.txt: True in 0.49681830406188965 seconds
+Few res for common-2-5757.txt: -1 in 0.4968581199645996 seconds
+Many res for common-2-5757.txt: inf in 0.7115859985351562 seconds
+
+None res for rusty-2-4000.txt: 4 in 0.6634697914123535 seconds
+Some res for rusty-2-4000.txt: True in 0.7773418426513672 seconds
+Alternate res for rusty-2-4000.txt: False in 0.9054739475250244 seconds
+Few res for rusty-2-4000.txt: -1 in 0.9055078029632568 seconds
+Many res for rusty-2-4000.txt: inf in 1.0078279972076416 seconds
+
+None res for gnm-2000-4000-0.txt: 6 in 0.09934496879577637 seconds
+Some res for gnm-2000-4000-0.txt: True in 0.10731196403503418 seconds
+Alternate res for gnm-2000-4000-0.txt: False in 0.11684083938598633 seconds
+Few res for gnm-2000-4000-0.txt: -1 in 0.1168680191040039 seconds
+Many res for gnm-2000-4000-0.txt: inf in 0.1250309944152832 seconds
+
+None res for wall-n-2.txt: 1 in 7.295608520507812e-05 seconds
+Some res for wall-n-2.txt: True in 0.00016808509826660156 seconds
+Alternate res for wall-n-2.txt: False in 0.00023889541625976562 seconds
+Few res for wall-n-2.txt: 0 in 0.000247955322265625 seconds
+Many res for wall-n-2.txt: inf in 0.00030684471130371094 seconds
+
+None res for grid-5-0.txt: 14 in 0.0001709461212158203 seconds
+Some res for grid-5-0.txt: True in 0.0003108978271484375 seconds
+Alternate res for grid-5-0.txt: True in 0.00045371055603027344 seconds
+Few res for grid-5-0.txt: -1 in 0.0004649162292480469 seconds
+Many res for grid-5-0.txt: inf in 0.0005817413330078125 seconds
+
+None res for common-1-250.txt: -1 in 6.198883056640625e-06 seconds
+Some res for common-1-250.txt: False in 0.0005731582641601562 seconds
+Alternate res for common-1-250.txt: False in 0.0012011528015136719 seconds
+Few res for common-1-250.txt: -1 in 0.0012230873107910156 seconds
+Many res for common-1-250.txt: inf in 0.0017390251159667969 seconds
+
+None res for common-2-2000.txt: -1 in 3.814697265625e-06 seconds
+Some res for common-2-2000.txt: True in 0.03089284896850586 seconds
+Alternate res for common-2-2000.txt: True in 0.06614875793457031 seconds
+Few res for common-2-2000.txt: -1 in 0.06618070602416992 seconds
+Many res for common-2-2000.txt: inf in 0.09356689453125 seconds
+
+None res for rusty-2-2500.txt: 4 in 0.25188517570495605 seconds
+Some res for rusty-2-2500.txt: True in 0.2996659278869629 seconds
+Alternate res for rusty-2-2500.txt: False in 0.3509690761566162 seconds
+Few res for rusty-2-2500.txt: -1 in 0.3510000705718994 seconds
+Many res for rusty-2-2500.txt: inf in 0.3936290740966797 seconds
+
+None res for grid-5-1.txt: 8 in 0.00018286705017089844 seconds
+Some res for grid-5-1.txt: True in 0.0003349781036376953 seconds
+Alternate res for grid-5-1.txt: True in 0.00047898292541503906 seconds
+Few res for grid-5-1.txt: -1 in 0.0004889965057373047 seconds
+Many res for grid-5-1.txt: inf in 0.0006098747253417969 seconds
+
+None res for wall-n-3.txt: 1 in 9.989738464355469e-05 seconds
+Some res for wall-n-3.txt: True in 0.0002300739288330078 seconds
+Alternate res for wall-n-3.txt: False in 0.0003349781036376953 seconds
+Few res for wall-n-3.txt: 0 in 0.00034499168395996094 seconds
+Many res for wall-n-3.txt: inf in 0.00043082237243652344 seconds
+
+None res for wall-n-1.txt: 1 in 4.1961669921875e-05 seconds
+Some res for wall-n-1.txt: True in 0.0001049041748046875 seconds
+Alternate res for wall-n-1.txt: False in 0.00014781951904296875 seconds
+Few res for wall-n-1.txt: 0 in 0.00015401840209960938 seconds
+Many res for wall-n-1.txt: inf in 0.00019025802612304688 seconds
+
+None res for rusty-1-5000.txt: 7 in 0.9414551258087158 seconds
+Some res for rusty-1-5000.txt: True in 0.9632430076599121 seconds
+Alternate res for rusty-1-5000.txt: False in 0.9905359745025635 seconds
+Few res for rusty-1-5000.txt: -1 in 0.9905672073364258 seconds
+Many res for rusty-1-5000.txt: inf in 1.0143492221832275 seconds
+
+None res for smallworld-40-0.txt: 8 in 0.08189988136291504 seconds
+Some res for smallworld-40-0.txt: True in 0.08913588523864746 seconds
+Alternate res for smallworld-40-0.txt: False in 0.09780383110046387 seconds
+Few res for smallworld-40-0.txt: -1 in 0.09783411026000977 seconds
+Many res for smallworld-40-0.txt: inf in 0.10518002510070801 seconds
+
+None res for wall-n-10000.txt: 1 in 0.28528428077697754 seconds
+Some res for wall-n-10000.txt: True in 0.6768844127655029 seconds
+Alternate res for wall-n-10000.txt: False in 0.9964070320129395 seconds
+Few res for wall-n-10000.txt: 0 in 0.996441125869751 seconds
+Many res for wall-n-10000.txt: inf in 1.239748239517212 seconds
+
+None res for common-1-1000.txt: -1 in 6.9141387939453125e-06 seconds
+Some res for common-1-1000.txt: False in 0.002630949020385742 seconds
+Alternate res for common-1-1000.txt: False in 0.0056951045989990234 seconds
+Few res for common-1-1000.txt: -1 in 0.005709171295166016 seconds
+Many res for common-1-1000.txt: inf in 0.008176803588867188 seconds
+
+None res for smallworld-40-1.txt: -1 in 5.9604644775390625e-06 seconds
+Some res for smallworld-40-1.txt: True in 0.008760213851928711 seconds
+Alternate res for smallworld-40-1.txt: True in 0.01861405372619629 seconds
+Few res for smallworld-40-1.txt: -1 in 0.018645048141479492 seconds
+Many res for smallworld-40-1.txt: inf in 0.02650594711303711 seconds
+
+None res for grid-5-2.txt: -1 in 0.0001621246337890625 seconds
+Some res for grid-5-2.txt: True in 0.00030493736267089844 seconds
+Alternate res for grid-5-2.txt: True in 0.0004470348358154297 seconds
+Few res for grid-5-2.txt: -1 in 0.0004558563232421875 seconds
+Many res for grid-5-2.txt: inf in 0.0006039142608642578 seconds
+
+None res for common-1-20.txt: -1 in 3.814697265625e-06 seconds
+Some res for common-1-20.txt: False in 7.867813110351562e-05 seconds
+Alternate res for common-1-20.txt: False in 0.00014066696166992188 seconds
+Few res for common-1-20.txt: -1 in 0.00026869773864746094 seconds
+Many res for common-1-20.txt: 0 in 0.000392913818359375 seconds
+
+None res for grid-50-1.txt: 521 in 0.06809282302856445 seconds
+Some res for grid-50-1.txt: True in 0.08137297630310059 seconds
+Alternate res for grid-50-1.txt: False in 0.0961599349975586 seconds
+Few res for grid-50-1.txt: -1 in 0.0961918830871582 seconds
+Many res for grid-50-1.txt: inf in 0.10810589790344238 seconds
+
+None res for smallworld-10-0.txt: 6 in 0.0007739067077636719 seconds
+Some res for smallworld-10-0.txt: True in 0.00131988525390625 seconds
+Alternate res for smallworld-10-0.txt: False in 0.0018320083618164062 seconds
+Few res for smallworld-10-0.txt: -1 in 0.0018429756164550781 seconds
+Many res for smallworld-10-0.txt: inf in 0.002276897430419922 seconds
+
+None res for rusty-1-4500.txt: 7 in 0.739732027053833 seconds
+Some res for rusty-1-4500.txt: True in 0.7620992660522461 seconds
+Alternate res for rusty-1-4500.txt: False in 0.7847931385040283 seconds
+Few res for rusty-1-4500.txt: -1 in 0.7848391532897949 seconds
+Many res for rusty-1-4500.txt: inf in 0.8042752742767334 seconds
+
+None res for common-1-100.txt: -1 in 4.76837158203125e-06 seconds
+Some res for common-1-100.txt: False in 0.0002467632293701172 seconds
+Alternate res for common-1-100.txt: False in 0.0004889965057373047 seconds
+Few res for common-1-100.txt: -1 in 0.0005009174346923828 seconds
+Many res for common-1-100.txt: inf in 0.0007028579711914062 seconds
+
+None res for smallworld-10-1.txt: 8 in 0.0006411075592041016 seconds
+Some res for smallworld-10-1.txt: True in 0.0011410713195800781 seconds
+Alternate res for smallworld-10-1.txt: True in 0.001840829849243164 seconds
+Few res for smallworld-10-1.txt: -1 in 0.0018630027770996094 seconds
+Many res for smallworld-10-1.txt: inf in 0.002318859100341797 seconds
+
+None res for wall-n-100.txt: 1 in 0.0025467872619628906 seconds
+Some res for wall-n-100.txt: True in 0.005623817443847656 seconds
+Alternate res for wall-n-100.txt: False in 0.008339881896972656 seconds
+Few res for wall-n-100.txt: 0 in 0.008352041244506836 seconds
+Many res for wall-n-100.txt: inf in 0.01071476936340332 seconds
+
+None res for common-1-4000.txt: -1 in 3.814697265625e-06 seconds
+Some res for common-1-4000.txt: True in 0.017732858657836914 seconds
+Alternate res for common-1-4000.txt: False in 0.037400007247924805 seconds
+Few res for common-1-4000.txt: -1 in 0.03742671012878418 seconds
+Many res for common-1-4000.txt: inf in 0.05439472198486328 seconds
+
+None res for grid-50-0.txt: 1249 in 0.0666811466217041 seconds
+Some res for grid-50-0.txt: True in 0.08001303672790527 seconds
+Alternate res for grid-50-0.txt: False in 0.09586095809936523 seconds
+Few res for grid-50-0.txt: -1 in 0.09588408470153809 seconds
+Many res for grid-50-0.txt: inf in 0.1072080135345459 seconds
+
+None res for rusty-1-5757.txt: 7 in 1.1116893291473389 seconds
+Some res for rusty-1-5757.txt: True in 1.1402900218963623 seconds
+Alternate res for rusty-1-5757.txt: False in 1.1751720905303955 seconds
+Few res for rusty-1-5757.txt: -1 in 1.1752052307128906 seconds
+Many res for rusty-1-5757.txt: inf in 1.2046713829040527 seconds
+
+None res for ski-level3-1.txt: -1 in 8.821487426757812e-06 seconds
+Some res for ski-level3-1.txt: True in 0.00011801719665527344 seconds
+Alternate res for ski-level3-1.txt: True in 0.00024271011352539062 seconds
+Few res for ski-level3-1.txt: 0 in 0.000476837158203125 seconds
+Many res for ski-level3-1.txt: 3 in 0.0006849765777587891 seconds
+
+None res for common-2-3500.txt: -1 in 5.9604644775390625e-06 seconds
+Some res for common-2-3500.txt: True in 0.08747291564941406 seconds
+Alternate res for common-2-3500.txt: True in 0.19466876983642578 seconds
+Few res for common-2-3500.txt: -1 in 0.19470596313476562 seconds
+Many res for common-2-3500.txt: inf in 0.2784287929534912 seconds
+
+None res for ski-level3-3.txt: 5 in 9.489059448242188e-05 seconds
+Some res for ski-level3-3.txt: False in 0.00017499923706054688 seconds
+Alternate res for ski-level3-3.txt: False in 0.00023126602172851562 seconds
+Few res for ski-level3-3.txt: 0 in 0.0003719329833984375 seconds
+Many res for ski-level3-3.txt: 1 in 0.0005049705505371094 seconds
+
+None res for ski-illustration.txt: 8 in 0.00019407272338867188 seconds
+Some res for ski-illustration.txt: True in 0.0003559589385986328 seconds
+Alternate res for ski-illustration.txt: False in 0.0004830360412597656 seconds
+Few res for ski-illustration.txt: 0 in 0.0007998943328857422 seconds
+Many res for ski-illustration.txt: 1 in 0.00113677978515625 seconds
+
+None res for smallworld-3-1.txt: -1 in 5.0067901611328125e-06 seconds
+Some res for smallworld-3-1.txt: True in 9.584426879882812e-05 seconds
+Alternate res for smallworld-3-1.txt: False in 0.00015497207641601562 seconds
+Few res for smallworld-3-1.txt: -1 in 0.00016498565673828125 seconds
+Many res for smallworld-3-1.txt: inf in 0.00021195411682128906 seconds
+
+None res for grid-50-2.txt: -1 in 7.867813110351562e-06 seconds
+Some res for grid-50-2.txt: True in 0.015958070755004883 seconds
+Alternate res for grid-50-2.txt: False in 0.0334019660949707 seconds
+Few res for grid-50-2.txt: -1 in 0.0334320068359375 seconds
+Many res for grid-50-2.txt: inf in 0.046724796295166016 seconds
+
+None res for increase-n10-2.txt: -1 in 5.9604644775390625e-06 seconds
+Some res for increase-n10-2.txt: False in 8.702278137207031e-05 seconds
+Alternate res for increase-n10-2.txt: True in 0.00014591217041015625 seconds
+Few res for increase-n10-2.txt: 2 in 0.00015401840209960938 seconds
+Many res for increase-n10-2.txt: 3 in 0.0002980232238769531 seconds
+
+None res for rusty-2-3000.txt: 4 in 0.34427809715270996 seconds
+Some res for rusty-2-3000.txt: True in 0.40978193283081055 seconds
+Alternate res for rusty-2-3000.txt: False in 0.48396992683410645 seconds
+Few res for rusty-2-3000.txt: -1 in 0.48400211334228516 seconds
+Many res for rusty-2-3000.txt: inf in 0.5448219776153564 seconds
+
+None res for smallworld-3-0.txt: -1 in 9.059906005859375e-06 seconds
+Some res for smallworld-3-0.txt: True in 0.00011181831359863281 seconds
+Alternate res for smallworld-3-0.txt: False in 0.00017380714416503906 seconds
+Few res for smallworld-3-0.txt: -1 in 0.0001838207244873047 seconds
+Many res for smallworld-3-0.txt: inf in 0.00023412704467773438 seconds
+
+None res for ski-level3-2.txt: 5 in 7.796287536621094e-05 seconds
+Some res for ski-level3-2.txt: True in 0.00014901161193847656 seconds
+Alternate res for ski-level3-2.txt: False in 0.00020694732666015625 seconds
+Few res for ski-level3-2.txt: 0 in 0.0003879070281982422 seconds
+Many res for ski-level3-2.txt: 1 in 0.0005369186401367188 seconds
+
+None res for wall-p-10.txt: 1 in 0.00024509429931640625 seconds
+Some res for wall-p-10.txt: True in 0.0005521774291992188 seconds
+Alternate res for wall-p-10.txt: False in 0.0007932186126708984 seconds
+Few res for wall-p-10.txt: 0 in 0.0008020401000976562 seconds
+Many res for wall-p-10.txt: inf in 0.001007080078125 seconds
+
+None res for ski-level10-2.txt: -1 in 0.0003819465637207031 seconds
+Some res for ski-level10-2.txt: True in 0.0006239414215087891 seconds
+Alternate res for ski-level10-2.txt: False in 0.0008759498596191406 seconds
+Few res for ski-level10-2.txt: 1 in 0.001528024673461914 seconds
+Many res for ski-level10-2.txt: 4 in 0.0021829605102539062 seconds
+
+None res for gnm-5000-10000-0.txt: -1 in 5.9604644775390625e-06 seconds
+Some res for gnm-5000-10000-0.txt: True in 0.022198915481567383 seconds
+Alternate res for gnm-5000-10000-0.txt: False in 0.04867982864379883 seconds
+Few res for gnm-5000-10000-0.txt: -1 in 0.04871177673339844 seconds
+Many res for gnm-5000-10000-0.txt: inf in 0.07076692581176758 seconds
+
+None res for common-2-1500.txt: -1 in 6.198883056640625e-06 seconds
+Some res for common-2-1500.txt: True in 0.018858909606933594 seconds
+Alternate res for common-2-1500.txt: True in 0.040158987045288086 seconds
+Few res for common-2-1500.txt: -1 in 0.04018902778625488 seconds
+Many res for common-2-1500.txt: inf in 0.05755305290222168 seconds
+
+None res for common-2-5000.txt: -1 in 5.9604644775390625e-06 seconds
+Some res for common-2-5000.txt: True in 0.20146417617797852 seconds
+Alternate res for common-2-5000.txt: True in 0.42370104789733887 seconds
+Few res for common-2-5000.txt: -1 in 0.42374610900878906 seconds
+Many res for common-2-5000.txt: inf in 0.591372013092041 seconds
+
+None res for rusty-1-17.txt: 10 in 0.00015807151794433594 seconds
+Some res for rusty-1-17.txt: True in 0.0002849102020263672 seconds
+Alternate res for rusty-1-17.txt: False in 0.0003750324249267578 seconds
+Few res for rusty-1-17.txt: -1 in 0.00038504600524902344 seconds
+Many res for rusty-1-17.txt: inf in 0.0004589557647705078 seconds
+
+None res for gnm-5000-10000-1.txt: -1 in 4.76837158203125e-06 seconds
+Some res for gnm-5000-10000-1.txt: True in 0.024979829788208008 seconds
+Alternate res for gnm-5000-10000-1.txt: True in 0.05663895606994629 seconds
+Few res for gnm-5000-10000-1.txt: -1 in 0.05667304992675781 seconds
+Many res for gnm-5000-10000-1.txt: inf in 0.080413818359375 seconds
+
+None res for ski-level5-1.txt: -1 in 0.00013494491577148438 seconds
+Some res for ski-level5-1.txt: True in 0.000244140625 seconds
+Alternate res for ski-level5-1.txt: False in 0.0003428459167480469 seconds
+Few res for ski-level5-1.txt: 1 in 0.0005967617034912109 seconds
+Many res for ski-level5-1.txt: 3 in 0.0008490085601806641 seconds
+
+None res for ski-level10-3.txt: -1 in 0.00034308433532714844 seconds
+Some res for ski-level10-3.txt: True in 0.0005848407745361328 seconds
+Alternate res for ski-level10-3.txt: False in 0.0008456707000732422 seconds
+Few res for ski-level10-3.txt: 4 in 0.0016808509826660156 seconds
+Many res for ski-level10-3.txt: 7 in 0.002511739730834961 seconds
+
+None res for rusty-1-2000.txt: -1 in 0.11476397514343262 seconds
+Some res for rusty-1-2000.txt: False in 0.1201467514038086 seconds
+Alternate res for rusty-1-2000.txt: False in 0.12670373916625977 seconds
+Few res for rusty-1-2000.txt: -1 in 0.12672686576843262 seconds
+Many res for rusty-1-2000.txt: inf in 0.13263988494873047 seconds
+
+None res for common-1-500.txt: -1 in 3.814697265625e-06 seconds
+Some res for common-1-500.txt: False in 0.0010957717895507812 seconds
+Alternate res for common-1-500.txt: False in 0.0023097991943359375 seconds
+Few res for common-1-500.txt: -1 in 0.0023217201232910156 seconds
+Many res for common-1-500.txt: inf in 0.003360748291015625 seconds
+
+None res for smallworld-30-0.txt: 9 in 0.0247342586517334 seconds
+Some res for smallworld-30-0.txt: True in 0.029333114624023438 seconds
+Alternate res for smallworld-30-0.txt: False in 0.03431439399719238 seconds
+Few res for smallworld-30-0.txt: -1 in 0.034336090087890625 seconds
+Many res for smallworld-30-0.txt: inf in 0.038535356521606445 seconds
+
+None res for ski-level10-1.txt: -1 in 0.0003390312194824219 seconds
+Some res for ski-level10-1.txt: False in 0.0005578994750976562 seconds
+Alternate res for ski-level10-1.txt: False in 0.0008029937744140625 seconds
+Few res for ski-level10-1.txt: -1 in 0.0014150142669677734 seconds
+Many res for ski-level10-1.txt: 0 in 0.002028226852416992 seconds
+
+None res for ski-level5-3.txt: 7 in 0.0001418590545654297 seconds
+Some res for ski-level5-3.txt: False in 0.0002598762512207031 seconds
+Alternate res for ski-level5-3.txt: False in 0.000354766845703125 seconds
+Few res for ski-level5-3.txt: 0 in 0.0005807876586914062 seconds
+Many res for ski-level5-3.txt: 0 in 0.0008027553558349609 seconds
+
+None res for ski-level5-2.txt: -1 in 0.00012922286987304688 seconds
+Some res for ski-level5-2.txt: True in 0.0002391338348388672 seconds
+Alternate res for ski-level5-2.txt: False in 0.00034809112548828125 seconds
+Few res for ski-level5-2.txt: 1 in 0.0005729198455810547 seconds
+Many res for ski-level5-2.txt: 2 in 0.0008070468902587891 seconds
+
+None res for common-1-2500.txt: -1 in 6.198883056640625e-06 seconds
+Some res for common-1-2500.txt: True in 0.010668039321899414 seconds
+Alternate res for common-1-2500.txt: False in 0.02208113670349121 seconds
+Few res for common-1-2500.txt: -1 in 0.02211308479309082 seconds
+Many res for common-1-2500.txt: inf in 0.03024911880493164 seconds
+
+None res for wall-z-100.txt: 1 in 0.0023508071899414062 seconds
+Some res for wall-z-100.txt: True in 0.005388021469116211 seconds
+Alternate res for wall-z-100.txt: False in 0.007821083068847656 seconds
+Few res for wall-z-100.txt: 0 in 0.007835865020751953 seconds
+Many res for wall-z-100.txt: inf in 0.010103940963745117 seconds
+
+None res for smallworld-30-1.txt: -1 in 4.76837158203125e-06 seconds
+Some res for smallworld-30-1.txt: True in 0.0050258636474609375 seconds
+Alternate res for smallworld-30-1.txt: True in 0.010724782943725586 seconds
+Few res for smallworld-30-1.txt: -1 in 0.010742902755737305 seconds
+Many res for smallworld-30-1.txt: inf in 0.01514887809753418 seconds
+
+None res for rusty-2-5000.txt: 4 in 1.1882381439208984 seconds
+Some res for rusty-2-5000.txt: True in 1.3795480728149414 seconds
+Alternate res for rusty-2-5000.txt: False in 1.587817907333374 seconds
+Few res for rusty-2-5000.txt: -1 in 1.587852954864502 seconds
+Many res for rusty-2-5000.txt: inf in 1.7496790885925293 seconds
+
+None res for wall-z-1.txt: 1 in 6.198883056640625e-05 seconds
+Some res for wall-z-1.txt: True in 0.00014710426330566406 seconds
+Alternate res for wall-z-1.txt: False in 0.00019693374633789062 seconds
+Few res for wall-z-1.txt: 0 in 0.00020599365234375 seconds
+Many res for wall-z-1.txt: inf in 0.0002460479736328125 seconds
+
+None res for P3.txt: -1 in 4.100799560546875e-05 seconds
+Some res for P3.txt: True in 9.679794311523438e-05 seconds
+Alternate res for P3.txt: True in 0.00012969970703125 seconds
+Few res for P3.txt: -1 in 0.00014495849609375 seconds
+Many res for P3.txt: inf in 0.000171661376953125 seconds
+
+None res for common-2-1000.txt: -1 in 5.0067901611328125e-06 seconds
+Some res for common-2-1000.txt: True in 0.009315967559814453 seconds
+Alternate res for common-2-1000.txt: True in 0.020281076431274414 seconds
+Few res for common-2-1000.txt: -1 in 0.02031397819519043 seconds
+Many res for common-2-1000.txt: inf in 0.028654098510742188 seconds
+
+None res for wall-z-2.txt: 1 in 6.818771362304688e-05 seconds
+Some res for wall-z-2.txt: True in 0.0001621246337890625 seconds
+Alternate res for wall-z-2.txt: False in 0.00023102760314941406 seconds
+Few res for wall-z-2.txt: 0 in 0.00023818016052246094 seconds
+Many res for wall-z-2.txt: inf in 0.0002949237823486328 seconds
+
+None res for common-1-2000.txt: -1 in 4.0531158447265625e-06 seconds
+Some res for common-1-2000.txt: False in 0.006093025207519531 seconds
+Alternate res for common-1-2000.txt: False in 0.013074874877929688 seconds
+Few res for common-1-2000.txt: -1 in 0.013096809387207031 seconds
+Many res for common-1-2000.txt: inf in 0.01886892318725586 seconds
+
+None res for wall-z-3.txt: 1 in 9.298324584960938e-05 seconds
+Some res for wall-z-3.txt: True in 0.00021767616271972656 seconds
+Alternate res for wall-z-3.txt: False in 0.0003120899200439453 seconds
+Few res for wall-z-3.txt: 0 in 0.0003209114074707031 seconds
+Many res for wall-z-3.txt: inf in 0.0003998279571533203 seconds
+
+None res for rusty-1-2500.txt: -1 in 0.18945670127868652 seconds
+Some res for rusty-1-2500.txt: False in 0.19667267799377441 seconds
+Alternate res for rusty-1-2500.txt: False in 0.20607686042785645 seconds
+Few res for rusty-1-2500.txt: -1 in 0.20611190795898438 seconds
+Many res for rusty-1-2500.txt: inf in 0.21497774124145508 seconds
+
+None res for common-2-100.txt: -1 in 4.0531158447265625e-06 seconds
+Some res for common-2-100.txt: False in 0.00029206275939941406 seconds
+Alternate res for common-2-100.txt: False in 0.0006148815155029297 seconds
+Few res for common-2-100.txt: -1 in 0.0006279945373535156 seconds
+Many res for common-2-100.txt: inf in 0.0008990764617919922 seconds
+
+None res for common-1-4500.txt: -1 in 4.291534423828125e-06 seconds
+Some res for common-1-4500.txt: True in 0.023493289947509766 seconds
+Alternate res for common-1-4500.txt: True in 0.04868817329406738 seconds
+Few res for common-1-4500.txt: -1 in 0.048725128173828125 seconds
+Many res for common-1-4500.txt: inf in 0.06919121742248535 seconds
+
+None res for grid-10-0.txt: 49 in 0.0006883144378662109 seconds
+Some res for grid-10-0.txt: True in 0.0012111663818359375 seconds
+Alternate res for grid-10-0.txt: False in 0.0018050670623779297 seconds
+Few res for grid-10-0.txt: -1 in 0.0018172264099121094 seconds
+Many res for grid-10-0.txt: inf in 0.0022783279418945312 seconds
+
+None res for common-2-500.txt: -1 in 3.814697265625e-06 seconds
+Some res for common-2-500.txt: True in 0.002404928207397461 seconds
+Alternate res for common-2-500.txt: True in 0.00533294677734375 seconds
+Few res for common-2-500.txt: -1 in 0.005364894866943359 seconds
+Many res for common-2-500.txt: inf in 0.007654905319213867 seconds
+
+None res for smallworld-50-1.txt: -1 in 6.9141387939453125e-06 seconds
+Some res for smallworld-50-1.txt: True in 0.013040781021118164 seconds
+Alternate res for smallworld-50-1.txt: True in 0.02894902229309082 seconds
+Few res for smallworld-50-1.txt: -1 in 0.028972864151000977 seconds
+Many res for smallworld-50-1.txt: inf in 0.041867971420288086 seconds
+
+None res for common-1-5757.txt: -1 in 6.9141387939453125e-06 seconds
+Some res for common-1-5757.txt: True in 0.03366971015930176 seconds
+Alternate res for common-1-5757.txt: True in 0.07547783851623535 seconds
+Few res for common-1-5757.txt: -1 in 0.07551074028015137 seconds
+Many res for common-1-5757.txt: inf in 0.10782289505004883 seconds
+
+None res for smallworld-50-0.txt: 3 in 0.2064208984375 seconds
+Some res for smallworld-50-0.txt: True in 0.2172088623046875 seconds
+Alternate res for smallworld-50-0.txt: False in 0.23041582107543945 seconds
+Few res for smallworld-50-0.txt: -1 in 0.23044776916503906 seconds
+Many res for smallworld-50-0.txt: inf in 0.24150300025939941 seconds
+
+None res for rusty-1-4000.txt: 13 in 0.4993760585784912 seconds
+Some res for rusty-1-4000.txt: True in 0.5163629055023193 seconds
+Alternate res for rusty-1-4000.txt: False in 0.5332169532775879 seconds
+Few res for rusty-1-4000.txt: -1 in 0.5332388877868652 seconds
+Many res for rusty-1-4000.txt: inf in 0.5489790439605713 seconds
+
+None res for common-1-50.txt: -1 in 5.0067901611328125e-06 seconds
+Some res for common-1-50.txt: False in 0.0001499652862548828 seconds
+Alternate res for common-1-50.txt: False in 0.0002760887145996094 seconds
+Few res for common-1-50.txt: -1 in 0.00029015541076660156 seconds
+Many res for common-1-50.txt: inf in 0.0003960132598876953 seconds
+
+None res for grid-10-1.txt: 29 in 0.0007500648498535156 seconds
+Some res for grid-10-1.txt: True in 0.001299142837524414 seconds
+Alternate res for grid-10-1.txt: False in 0.0019109249114990234 seconds
+Few res for grid-10-1.txt: -1 in 0.0019218921661376953 seconds
+Many res for grid-10-1.txt: inf in 0.0024039745330810547 seconds
+
+None res for miniDAG.txt: -1 in 3.409385681152344e-05 seconds
+Some res for miniDAG.txt: True in 7.700920104980469e-05 seconds
+Alternate res for miniDAG.txt: True in 9.965896606445312e-05 seconds
+Few res for miniDAG.txt: 1 in 0.0001399517059326172 seconds
+Many res for miniDAG.txt: 1 in 0.00017881393432617188 seconds
+
+None res for gnm-4000-8000-1.txt: -1 in 6.198883056640625e-06 seconds
+Some res for gnm-4000-8000-1.txt: True in 0.020772218704223633 seconds
+Alternate res for gnm-4000-8000-1.txt: True in 0.04311394691467285 seconds
+Few res for gnm-4000-8000-1.txt: -1 in 0.04314398765563965 seconds
+Many res for gnm-4000-8000-1.txt: inf in 0.061640024185180664 seconds
+
+None res for wall-n-10.txt: 1 in 0.0002849102020263672 seconds
+Some res for wall-n-10.txt: True in 0.0006299018859863281 seconds
+Alternate res for wall-n-10.txt: False in 0.0009238719940185547 seconds
+Few res for wall-n-10.txt: 0 in 0.0009341239929199219 seconds
+Many res for wall-n-10.txt: inf in 0.0011849403381347656 seconds
+
+None res for wall-z-4.txt: 1 in 0.00014591217041015625 seconds
+Some res for wall-z-4.txt: True in 0.00030994415283203125 seconds
+Alternate res for wall-z-4.txt: False in 0.00043392181396484375 seconds
+Few res for wall-z-4.txt: 0 in 0.0004439353942871094 seconds
+Many res for wall-z-4.txt: inf in 0.0005471706390380859 seconds
+
+None res for gnm-10-20-0.txt: -1 in 5.0067901611328125e-06 seconds
+Some res for gnm-10-20-0.txt: True in 0.0001010894775390625 seconds
+Alternate res for gnm-10-20-0.txt: False in 0.00017213821411132812 seconds
+Few res for gnm-10-20-0.txt: -1 in 0.00018310546875 seconds
+Many res for gnm-10-20-0.txt: inf in 0.0002391338348388672 seconds
+
+None res for rusty-2-3500.txt: 4 in 0.46532297134399414 seconds
+Some res for rusty-2-3500.txt: True in 0.5514788627624512 seconds
+Alternate res for rusty-2-3500.txt: False in 0.6486289501190186 seconds
+Few res for rusty-2-3500.txt: -1 in 0.6486630439758301 seconds
+Many res for rusty-2-3500.txt: inf in 0.7283890247344971 seconds
+
+None res for wall-p-100.txt: 1 in 0.0020139217376708984 seconds
+Some res for wall-p-100.txt: True in 0.004832744598388672 seconds
+Alternate res for wall-p-100.txt: False in 0.006931781768798828 seconds
+Few res for wall-p-100.txt: 0 in 0.0069429874420166016 seconds
+Many res for wall-p-100.txt: inf in 0.00876474380493164 seconds
+
+None res for gnm-10-20-1.txt: -1 in 4.0531158447265625e-06 seconds
+Some res for gnm-10-20-1.txt: True in 9.489059448242188e-05 seconds
+Alternate res for gnm-10-20-1.txt: True in 0.00016307830810546875 seconds
+Few res for gnm-10-20-1.txt: -1 in 0.0001709461212158203 seconds
+Many res for gnm-10-20-1.txt: inf in 0.0002238750457763672 seconds
+
+None res for G-ex.txt: 3 in 5.936622619628906e-05 seconds
+Some res for G-ex.txt: True in 0.0001163482666015625 seconds
+Alternate res for G-ex.txt: True in 0.00027823448181152344 seconds
+Few res for G-ex.txt: -1 in 0.0002963542938232422 seconds
+Many res for G-ex.txt: inf in 0.0003361701965332031 seconds
+
+None res for common-2-3000.txt: -1 in 5.7220458984375e-06 seconds
+Some res for common-2-3000.txt: True in 0.06647968292236328 seconds
+Alternate res for common-2-3000.txt: True in 0.14263677597045898 seconds
+Few res for common-2-3000.txt: -1 in 0.14267587661743164 seconds
+Many res for common-2-3000.txt: inf in 0.20214486122131348 seconds
+
+None res for grid-10-2.txt: -1 in 0.00072479248046875 seconds
+Some res for grid-10-2.txt: True in 0.0012998580932617188 seconds
+Alternate res for grid-10-2.txt: True in 0.001931905746459961 seconds
+Few res for grid-10-2.txt: -1 in 0.0019428730010986328 seconds
+Many res for grid-10-2.txt: inf in 0.0024449825286865234 seconds
+
+None res for gnm-4000-8000-0.txt: 5 in 0.4346311092376709 seconds
+Some res for gnm-4000-8000-0.txt: True in 0.4512059688568115 seconds
+Alternate res for gnm-4000-8000-0.txt: False in 0.46927595138549805 seconds
+Few res for gnm-4000-8000-0.txt: -1 in 0.4693009853363037 seconds
+Many res for gnm-4000-8000-0.txt: inf in 0.4846029281616211 seconds
+
+None res for wall-z-10.txt: 1 in 0.00026702880859375 seconds
+Some res for wall-z-10.txt: True in 0.0006041526794433594 seconds
+Alternate res for wall-z-10.txt: False in 0.0008771419525146484 seconds
+Few res for wall-z-10.txt: 0 in 0.0008862018585205078 seconds
+Many res for wall-z-10.txt: inf in 0.0011200904846191406 seconds
+
