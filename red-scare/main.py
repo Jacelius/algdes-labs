@@ -6,6 +6,9 @@ from Many import max_red_on_any_path
 import time
 import os
 
+import sys
+sys.setrecursionlimit(100000)
+
 def remove_increase(files):
     for file in files:
         if "increase" in file:
@@ -67,16 +70,16 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     # print("Graph: ", G)
 
     #None:
-    # sp = shortest_path(G, start_node, end_node, rednodes, int(num_edges))
+    # sp = shortest_path(G, start_node, end_node, int(num_edges))
     # print(f"None res for {file}: {sp} in {time.time() - start_time}")
 
     # #Some:
-    # some = path_exists_including_red(G, start_node, end_node, rednodes)
+    # some = path_exists_including_red(G, start_node, end_node)
     # print(f"Some res for {file}: {some} in {time.time() - start_time}")
 
     # #Alternate:
-    # alternates = path_exists_alternating_red(G, start_node, end_node, rednodes)
-    # print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
+    alternates = path_exists_alternating_red(G, start_node, end_node)
+    print(f"Alternate res for {file}: {alternates} in {time.time() - start_time}")
 
     #Few:
     # few = min_red_on_any_path(G, start_node, end_node,num_nodes)
@@ -85,8 +88,8 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     # NoneXD_results.append(sp)
     
     #Many:
-    many = max_red_on_any_path(G, start_node, end_node)
-    print(f"Many res for {file}: {many} in {time.time() - start_time} seconds")
+    # many = max_red_on_any_path(G, start_node, end_node)
+    # print(f"Many res for {file}: {many} in {time.time() - start_time} seconds")
     # Few_results.append(few)
     # NoneXD_results.append(sp)
 

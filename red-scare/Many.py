@@ -4,7 +4,6 @@ import sys
 from utils import is_undirected, dijkstra, graph_to_nx
 import networkx as nx
 
-sys.setrecursionlimit(10000)
 global max_red_path
 
 class ManyRedException(Exception):

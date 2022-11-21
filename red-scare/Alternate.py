@@ -16,18 +16,25 @@ def dfs(G, s, t): # Depth first search that returns true if a path exists from s
         if node not in visited:
             visited.add(node)
             for neighbor in G[node]:
-                stack.append(neighbor)
+                if neighbor != "isRed":
+                    stack.append(neighbor)
     return False
 
-def build_graph(G, s, t, R):
-    not_red = set(G) - set(R) # Build not_red set
+def build_graph(G):
+    # make set of red nodes
+    R_set = set()
+    for node in G:
+        if G[node]["isRed"]:
+            R_set.add(node)
+    not_red = set(G) - R_set # Build not_red set
     #build a graph with red and non-red nodes alternating
     G2 = deepcopy(G)
     for node in G:
-        if node in R:
+        if G[node]["isRed"]:
             for neighbor in G[node]:
-                if neighbor in R:
-                    G2[node].pop(neighbor)
+                if neighbor != "isRed":
+                    if G[neighbor]["isRed"]:
+                        G2[node].pop(neighbor)
     #Remove all edges from non-red nodes to non-red nodes
     for node in G:
         if node in not_red:
@@ -36,7 +43,7 @@ def build_graph(G, s, t, R):
                     G2[node].pop(neighbor)
     return G2
 
-def path_exists_alternating_red(G, s, t, R):
-    Graph = build_graph(G, s, t, R)
+def path_exists_alternating_red(G, s, t):
+    Graph = build_graph(G)
     return dfs(Graph, s, t)
     
