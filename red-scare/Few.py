@@ -1,11 +1,11 @@
 from copy import deepcopy
+from utils import is_undirected, does_graph_contain_cycle, count_reds_in_path
 import sys
+sys.setrecursionlimit(10000)
 
 class MinPathFound(Exception):
     pass
-sys.setrecursionlimit(10000)
 global least_red_path
-
 
 def find_all_paths_dfs(G, s, t, visited, path, mincount):
     global least_red_path
@@ -35,55 +35,12 @@ def find_all_paths_dfs(G, s, t, visited, path, mincount):
     path.pop()
     visited[s]= False
 
-def count_reds_in_path(G, path):
-    count = 0
-    for node in path:
-        # print("node: ", node)
-        if G[node]["isRed"] == True:
-            count += 1
-    return count
-
-def is_undirected(G):
-    for node in G:
-        for neighbor in G[node]:
-            if neighbor != "isRed": # ignore isRed
-                if node not in G[neighbor]:
-                    return False
-                return True
-
-def isCyclicUtil(G, v, visited, recStack):
-        visited[v] = True
-        recStack[v] = True
- 
-        for neighbour in G[v]:
-            if neighbour != "isRed": # ignore isRed 
-                if visited[neighbour] == False:
-                    if isCyclicUtil(G,neighbour, visited, recStack) == True:
-                        return True
-                elif recStack[neighbour] == True:
-                    return True
- 
-        recStack[v] = False
-        return False
-
-def does_graph_contain_cycle(G):
-    visited = deepcopy(G)
-    recstack = deepcopy(G)
-    for node in visited:
-        visited[node] = False
-        recstack[node] = False
-    for node in G:
-        if visited[node] == False:
-            if isCyclicUtil(G, node, visited, recstack) == True:
-                return True
-    return False
-
 def min_red_on_any_path(G, s, t, num_nodes):
     mincount = 0
     if G[s]["isRed"] == True:
-        mincount =+ 1
+        mincount += 1
     if G[t]["isRed"] == True:
-        mincount =+ 1
+        mincount += 1
     if t in G[s]: # s has a direct edge to t
         return mincount
     if not is_undirected(G) and not does_graph_contain_cycle(G):
@@ -97,7 +54,7 @@ def min_red_on_any_path(G, s, t, num_nodes):
         for node in visited:
             visited[node] = False
         try:
-            find_all_paths_dfs(G, s, t, visited, paths,mincount)
+            find_all_paths_dfs(G, s, t, visited, paths, mincount)
         except MinPathFound:
             return 0
         # print("all paths: ", all_paths)

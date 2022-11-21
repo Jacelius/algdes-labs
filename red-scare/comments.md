@@ -57,3 +57,9 @@ implementation of __Some.py__ is especially tricky for this
 * s = $α_1$
 * t = $α_n$
 * There is an edge from $α_i$ to $α_j$ if i<j and $α_i$ < $α_j$.
+
+
+## 8 the 3 scenarios of many:
+* Undirected, always infinite if the graph contains a red node,
+* Directed but cyclic infinite if cycle contains red,  - if none does build graph again without cylces and run all possible paths, 
+* DAG : Run through all possible paths, return max. 

@@ -1,19 +1,5 @@
 from copy import deepcopy
-def dijkstra(G, s):
-    dist = {}
-    for node in G:
-        dist[node] = float('inf')
-    dist[s] = 0
-    Q = set(G)
-    while Q:
-        u = min(Q, key=dist.get)
-        Q.remove(u)
-        for v in G[u]:
-            if v != "isRed":
-                alt = dist[u] + G[u][v]
-                if alt < dist[v]:
-                    dist[v] = alt
-    return dist
+from utils import dijkstra
 
 # return the length of the shortest s, t path
 # If no such path exists, return ‘-1’.
