@@ -2,9 +2,10 @@ from NoneXD import shortest_path
 from Some import path_exists_including_red
 from Alternate import path_exists_alternating_red
 from Few import min_red_on_any_path
-from Many import max_red_on_any_path
+from Many import max_red_on_any_path_brute, max_red_on_any_path
 import time
 import os
+from utils import NegativeWeightCycleException
 
 import sys
 sys.setrecursionlimit(100000)
@@ -59,8 +60,10 @@ files = get_files()
 # files.remove("bht.txt")
 # files = remove_increase(files)
 # files.remove("miniDCG.txt")
-files = ["gnm-1000-2000-1.txt"]
-# files = ["G-ex.txt"]
+# files = ["gnm-1000-2000-1.txt"]
+#files = ["G-ex.txt"]
+#files = ["bht.txt"]
+# files = ["rusty-1-17.txt"]
 Few_results = []
 NoneXD_results = []
 
@@ -99,9 +102,19 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     print(few_res)
     
     #Many:
-    many = max_red_on_any_path(G, start_node, end_node)
-    many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
-    print(many_res)
+    if int(num_nodes) < 14:
+        many = max_red_on_any_path_brute(G, start_node, end_node)
+        many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+        print(many_res)
+    else:
+        try:
+            many = max_red_on_any_path(G, start_node, end_node)
+            many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+            print(many_res)
+        except NegativeWeightCycleException:
+            many = "???"
+            many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+            print(many_res)
     
     if should_write == '1':
         with open("results.txt", "a") as f:

@@ -43,8 +43,6 @@ def min_red_on_any_path(G, s, t, num_nodes):
     if t in G[s]: # s has a direct edge to t
         return mincount
     if not is_undirected(G) and not does_graph_contain_cycle(G):
-        #Run dijkstra to make sure a path exists
-        #print("distance to t", dist[t])
         # print("Graph is DAG")
         global least_red_path
         least_red_path = sys.maxsize
