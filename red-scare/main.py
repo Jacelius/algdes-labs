@@ -1,7 +1,7 @@
 from NoneXD import shortest_path
 from Some import path_exists_including_red
 from Alternate import path_exists_alternating_red
-from Few import min_red_on_any_path
+from Few import min_red_on_any_path, min_red_on_any_path_dijkstra
 from Many import max_red_on_any_path_brute, max_red_on_any_path
 import time
 import os
@@ -59,10 +59,10 @@ def get_files():
 files = get_files()
 # files.remove("bht.txt")
 # files = remove_increase(files)
-# files.remove("miniDCG.txt")
+# files = ["miniDAG.txt"]
 # files = ["gnm-1000-2000-1.txt"]
-#files = ["G-ex.txt"]
-#files = ["bht.txt"]
+files = ["G-ex.txt"]
+# files = ["bht.txt"]
 # files = ["rusty-1-17.txt"]
 Few_results = []
 NoneXD_results = []
@@ -86,18 +86,13 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     none_res = f"None res for {file}: {none} in {time.time() - start_time} seconds"
     print(none_res)
 
-    # #Some:
-    some = path_exists_including_red(G, start_node, end_node)
-    some_res = f"Some res for {file}: {some} in {time.time() - start_time} seconds"
-    print(some_res)
-
     # #Alternate:
     alternates = path_exists_alternating_red(G, start_node, end_node)
     alternates_res = f"Alternate res for {file}: {alternates} in {time.time() - start_time} seconds"
     print(alternates_res)
 
     #Few:
-    few = min_red_on_any_path(G, start_node, end_node,num_nodes)
+    few = min_red_on_any_path_dijkstra(G, start_node, end_node)
     few_res = f"Few res for {file}: {few} in {time.time() - start_time} seconds"
     print(few_res)
     
@@ -115,6 +110,15 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
             many = "???"
             many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
             print(many_res)
+
+    # #Some: true if many > 0)
+    if many == "???" or many == 0:
+        some = path_exists_including_red(G, start_node, end_node)
+        some_res = f"Some res for {file}: {some} in {time.time() - start_time} seconds"
+        print(some_res)
+    else:
+        some_res = f"Some res for {file}: True in {time.time() - start_time} seconds"
+        print(some_res)
     
     if should_write == '1':
         with open("results.txt", "a") as f:
