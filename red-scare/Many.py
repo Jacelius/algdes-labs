@@ -35,7 +35,9 @@ def max_red_on_any_path_brute(G, s, t):
     return max_red_path
 
 def max_red_on_any_path(G, s, t):
-    # Rethink this .. something with modified edges, and then run dijkstra/bellman ford
+    # edges to red nodes = -1 
+    # edges to non-red nodes = 0
+    # bellman ford to find shortest path
     new_G = deepcopy(G)
     for node in new_G:
         for edge_target in new_G[node]:

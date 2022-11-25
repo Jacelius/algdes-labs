@@ -78,7 +78,7 @@ else:
 for file in files: # run None, Some, Many, Few & Alternate on the graph 
     G, num_nodes, num_edges, start_node, end_node = parse_graph(file)
 
-    print('starting on ', file + '... isDAG =' + str(is_DAG(G)))
+    print('starting on ', file + '... isDAG = ' + str(is_DAG(G)))
 
     start_time = time.time()
 
