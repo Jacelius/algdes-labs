@@ -1,7 +1,7 @@
 from copy import deepcopy
 from Few import count_reds_in_path,does_graph_contain_cycle
 import sys
-from utils import is_undirected, dijkstra, graph_to_nx, bellman_ford, remove_reverse_edges
+from utils import is_undirected, dijkstra, graph_to_nx, bellman_ford, remove_reverse_edges, bellman_ford
 import networkx as nx
 
 # Problem for many: 
@@ -37,7 +37,6 @@ def max_red_on_any_path_brute(G, s, t):
 def max_red_on_any_path(G, s, t):
     # Rethink this .. something with modified edges, and then run dijkstra/bellman ford
     new_G = deepcopy(G)
-    remove_reverse_edges(new_G)
     for node in new_G:
         for edge_target in new_G[node]:
             if edge_target != 'isRed':
@@ -50,25 +49,3 @@ def max_red_on_any_path(G, s, t):
         return -1
     return -dist[t] # negative distance is the number of red nodes in path
 
-#################
-
-# run bellman ford with -1 for red edges, 0 for non-red edges
-# only run for DAG
-# if no path, return -1
-def bellman_ford(G, s, t):
-    dist = {}
-    for node in G:
-        dist[node] = float('inf')
-    dist[s] = 0
-    for i in range(len(G) - 1):
-        for node in G:
-            for edge_target in G[node]:
-                if edge_target != 'isRed':
-                    if dist[node] + G[node][edge_target] < dist[edge_target]:
-                        dist[edge_target] = dist[node] + G[node][edge_target]
-    for node in G:
-        for edge_target in G[node]:
-            if edge_target != 'isRed':
-                if dist[node] + G[node][edge_target] < dist[edge_target]:
-                    raise Exception("Graph contains negative weight cycle")
-    return dist

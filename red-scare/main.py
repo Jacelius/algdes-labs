@@ -5,7 +5,7 @@ from Few import min_red_on_any_path, min_red_on_any_path_dijkstra
 from Many import max_red_on_any_path_brute, max_red_on_any_path
 import time
 import os
-from utils import NegativeWeightCycleException, does_graph_contain_cycle, is_undirected
+from utils import NegativeWeightCycleException, does_graph_contain_cycle, is_undirected , is_DAG
 
 import sys
 sys.setrecursionlimit(100000)
@@ -64,7 +64,7 @@ files = get_files()
 # files = ["G-ex.txt"]
 # files = ["bht.txt"]
 # files = ["rusty-1-17.txt"]
-#files = ["common-1-20.txt"]
+# files = ["common-1-20.txt"]
 Few_results = []
 NoneXD_results = []
 
@@ -78,7 +78,7 @@ else:
 for file in files: # run None, Some, Many, Few & Alternate on the graph 
     G, num_nodes, num_edges, start_node, end_node = parse_graph(file)
 
-    print('starting on ', file)
+    print('starting on ', file + '... isDAG =' + str(is_DAG(G)))
 
     start_time = time.time()
 
@@ -97,6 +97,24 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     few_res = f"Few res for {file}: {few} in {time.time() - start_time} seconds"
     print(few_res)
 
+    #Many:
+    if int(num_nodes) < 14: # "brute force" many
+        many = max_red_on_any_path_brute(G, start_node, end_node)
+        many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+        print(many_res)
+    else:
+        if (is_DAG(G)):
+            try:
+                many = max_red_on_any_path(G, start_node, end_node)
+                many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+                print(many_res) 
+            except NegativeWeightCycleException: # should never happen, because we should only try on DAGs
+                many_res = f"Many res for {file}: ??? in {time.time() - start_time} seconds"
+                print(many_res)
+        else:
+            many_res = f"Many res for {file}: ??? in {time.time() - start_time} seconds"
+            print(many_res)
+
     if is_undirected(G):
         some = path_exists_including_red_flow(G, start_node, end_node)
         some_res = f"Some res for {file}: {some} in {time.time() - start_time} seconds"
@@ -107,21 +125,6 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     else:
         some = f"Some res for {file}: ??? in {time.time() - start_time} seconds"   
         print(some)
-    
-    #Many:
-    # if int(num_nodes) < 14: # "brute force" many
-    #     many = max_red_on_any_path_brute(G, start_node, end_node)
-    #     many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
-    #     print(many_res)
-    # else:
-    #     try: # 
-    #         many = max_red_on_any_path(G, start_node, end_node)
-    #         many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
-    #         print(many_res)
-    #     except NegativeWeightCycleException:
-    #         many = "???"
-    #         many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
-    #         print(many_res)
     
     if should_write == '1':
         with open("results.txt", "a") as f:

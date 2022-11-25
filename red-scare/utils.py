@@ -135,6 +135,13 @@ def is_cyclic_util(G, v, visited, recStack):
  
         recStack[v] = False
         return False
+
+def is_DAG(G):
+    if is_undirected(G):
+        return False
+    if does_graph_contain_cycle(G):
+        return False
+    return True
             
 def does_graph_contain_cycle(G):
     visited = deepcopy(G)
