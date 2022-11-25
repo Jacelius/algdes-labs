@@ -97,12 +97,12 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     print(few_res)
     
     #Many:
-    if int(num_nodes) < 14:
+    if int(num_nodes) < 14: # "brute force" many
         many = max_red_on_any_path_brute(G, start_node, end_node)
         many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
         print(many_res)
     else:
-        try:
+        try: # 
             many = max_red_on_any_path(G, start_node, end_node)
             many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
             print(many_res)

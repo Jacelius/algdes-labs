@@ -1,7 +1,7 @@
 from copy import deepcopy
 from Few import count_reds_in_path,does_graph_contain_cycle
 import sys
-from utils import is_undirected, dijkstra, graph_to_nx, bellman_ford, convert_undirected_to_directed
+from utils import is_undirected, dijkstra, graph_to_nx, bellman_ford, remove_reverse_edges
 import networkx as nx
 
 class ManyRedException(Exception):
@@ -29,9 +29,8 @@ def max_red_on_any_path_brute(G, s, t):
     return max_red_path
 
 def max_red_on_any_path(G, s, t):
-    # Change all edge weights to non-red nodes to be 1 million and red nodes to be 1
-    # Then run dijkstra's algorithm
-    convert_undirected_to_directed(G)
+    # Rethink this .. something with modified edges, and then run dijkstra/bellman ford
+    remove_reverse_edges(G)
     for node in G:
         for edge_target in G[node]:
             if edge_target != 'isRed':
@@ -42,4 +41,4 @@ def max_red_on_any_path(G, s, t):
     dist = bellman_ford(G,s)
     if dist[t] == float('inf'): # no path
         return -1
-    return -dist[t]
+    return -dist[t] # negative distance is the number of red nodes in path

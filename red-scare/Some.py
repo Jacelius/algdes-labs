@@ -68,3 +68,17 @@ def path_exists_including_red(G, s, t):
         return False
     except redPathFound:
         return True
+
+def path_exists_including_red_flow(G, s, t):
+    red_nodes = []
+    for node in G:
+        if G[node]["isRed"]:
+            red_nodes.append(node)
+    
+    for red_node in red_nodes:
+        # construct flow graph where red_node is the source and s & t are sinks
+        # if max_flow = 2, then there is a path from red_node to s and t
+        # -> so there is a path from s to t that includes red_node
+        pass
+    pass
+
