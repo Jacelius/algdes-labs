@@ -1,4 +1,5 @@
 from copy import deepcopy
+from utils import ford_fulkerson_max_flow
 
 class redPathFound(Exception):
     pass
@@ -69,16 +70,24 @@ def path_exists_including_red(G, s, t):
     except redPathFound:
         return True
 
-def path_exists_including_red_flow(G, s, t):
+def path_exists_including_red_flow(G, s, t): # only on undirected
     red_nodes = []
     for node in G:
         if G[node]["isRed"]:
             red_nodes.append(node)
-    
+    #print("red nodes: ", red_nodes)
     for red_node in red_nodes:
         # construct flow graph where red_node is the source and s & t are sinks
-        # if max_flow = 2, then there is a path from red_node to s and t
-        # -> so there is a path from s to t that includes red_node
-        pass
-    pass
+        flow_graph = deepcopy(G)
+        flow_graph["supersink"] = {}
+        flow_graph["supersink"][s] = 1
+        flow_graph["supersink"][t] = 1
+        flow_graph[s]["supersink"] = 1
+        flow_graph[t]["supersink"] = 1
+        max_flow = ford_fulkerson_max_flow(flow_graph, red_node, "supersink")
+        # print("flow_graph", flow_graph)
+        #print("max_flow", max_flow)
+        if max_flow == 2:
+            return True # -> so there is a path from s to t that includes red_node
+    return False
 

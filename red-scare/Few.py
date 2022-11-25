@@ -73,14 +73,15 @@ def min_red_on_any_path(G, s, t, num_nodes):
 
 def min_red_on_any_path_dijkstra(G, s, t):
     # change graph edges to non-red nodes to be 0
-    for node in G:
-        for edge_target in G[node]:
+    new_g = deepcopy(G)
+    for node in new_g:
+        for edge_target in new_g[node]:
             if edge_target != 'isRed':
-                if G[edge_target]['isRed'] == True:
-                    G[node][edge_target] = 1
+                if new_g[edge_target]['isRed'] == True:
+                    new_g[node][edge_target] = 1
                 else:
-                    G[node][edge_target] = 0
-    dist = dijkstra(G, s)
+                    new_g[node][edge_target] = 0
+    dist = dijkstra(new_g, s)
     if dist[t] == float('inf'):  # no path
         return -1
     return dist[t]

@@ -1,5 +1,6 @@
 from copy import deepcopy
 import networkx as nx
+import time
 
 class NegativeWeightCycleException(Exception):
     pass
@@ -15,8 +16,55 @@ def graph_to_nx(graph):
     # print("nx Graph", G)
     return G
 
-def remove_reverse_edges(G):
-    #Remove all reverse edges from graph
+def bfs(G,s,t,parent):
+    visited = deepcopy(G)
+    for node in visited:
+        visited[node] = False
+    queue = []
+    queue.append(s)
+    visited[s] = True
+    while queue:
+        u = queue.pop(0)
+        for ind in G[u]:
+            if ind != "isRed":
+                if visited[ind] == False and G[u][ind] > 0 :
+                    queue.append(ind)
+                    visited[ind] = True
+                    parent[ind] = u
+    return True if visited[t] else False
+
+def ford_fulkerson_max_flow(G, source, sink):
+    # Create a residual graph and fill the residual graph with given capacities in the original graph as residual capacities in residual graph  
+    # Residual graph where rGraph[i][j] indicates residual capacity of edge from i to j (if there is an edge. If rGraph[i][j] is 0, then there is not)
+    rGraph = deepcopy(G)
+    for u in rGraph:
+        for v in rGraph[u]:
+            if v != "isRed":
+                rGraph[u][v] = G[u][v]
+    # This array is filled by BFS and to store path
+    parent = {}
+    max_flow = 0 # There is no flow initially
+    # Augment the flow while there is path from source to sink
+    while bfs(rGraph, source, sink, parent):
+        # Find minimum residual capacity of the edges along the path filled by BFS. Or we can say find the maximum flow through the path found.
+        path_flow = float("Inf")
+        s = sink
+        while(s !=  source):
+            path_flow = min(path_flow, rGraph[parent[s]][s])
+            s = parent[s]
+        # Add path flow to overall flow
+        max_flow +=  path_flow
+        # update residual capacities of the edges and reverse edges along the path
+        v = sink
+        while(v !=  source):
+            u = parent[v]
+            rGraph[u][v] -= path_flow
+            rGraph[v][u] += path_flow
+            v = parent[v]
+    # Return the overall flow
+    return max_flow
+
+def remove_reverse_edges(G): # undirected --> directed
     for u in G:
         for v in G[u]:
             if v != "isRed":
@@ -58,41 +106,6 @@ def bellman_ford(G,s):
                     raise NegativeWeightCycleException
     return dist
 
-def ford_fulkerson_max_flow(G, source, sink):
-    # Create a residual graph and fill the residual graph with
-    # given capacities in the original graph as residual capacities
-    # in residual graph
-    residual_graph = deepcopy(G)
-    for u in residual_graph:
-        for v in residual_graph[u]:
-            if v != "isRed":
-                residual_graph[u][v] = 0
-    # This array is filled by BFS and to store path
-    parent = {}
-    max_flow = 0 # There is no flow initially
-    # Augment the flow while there is path from source to sink
-    while bfs(residual_graph, source, sink, parent):
-        # Find minimum residual capacity of the edges along the
-        # path filled by BFS. Or we can say find the maximum flow
-        # through the path found.
-        path_flow = float("Inf")
-        s = sink
-        while(s != source):
-            path_flow = min(path_flow, residual_graph[parent[s]][s])
-            s = parent[s]
-        # Add path flow to overall flow
-        max_flow += path_flow
-        # update residual capacities of the edges and reverse edges
-        # along the path
-        v = sink
-        while(v != source):
-            u = parent[v]
-            residual_graph[u][v] -= path_flow
-            residual_graph[v][u] += path_flow
-            v = parent[v]
-    return max_flow
-
-    
 
 def count_reds_in_path(G, path):
     count = 0
@@ -112,7 +125,6 @@ def is_undirected(G):
 def is_cyclic_util(G, v, visited, recStack):
         visited[v] = True
         recStack[v] = True
- 
         for neighbour in G[v]:
             if neighbour != "isRed": # ignore isRed 
                 if visited[neighbour] == False:

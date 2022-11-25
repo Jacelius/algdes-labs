@@ -1,11 +1,11 @@
 from NoneXD import shortest_path
-from Some import path_exists_including_red
+from Some import path_exists_including_red, path_exists_including_red_flow
 from Alternate import path_exists_alternating_red
 from Few import min_red_on_any_path, min_red_on_any_path_dijkstra
 from Many import max_red_on_any_path_brute, max_red_on_any_path
 import time
 import os
-from utils import NegativeWeightCycleException
+from utils import NegativeWeightCycleException, does_graph_contain_cycle, is_undirected
 
 import sys
 sys.setrecursionlimit(100000)
@@ -61,9 +61,10 @@ files = get_files()
 # files = remove_increase(files)
 # files = ["miniDAG.txt"]
 # files = ["gnm-1000-2000-1.txt"]
-files = ["G-ex.txt"]
+# files = ["G-ex.txt"]
 # files = ["bht.txt"]
 # files = ["rusty-1-17.txt"]
+#files = ["common-1-20.txt"]
 Few_results = []
 NoneXD_results = []
 
@@ -95,30 +96,32 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
     few = min_red_on_any_path_dijkstra(G, start_node, end_node)
     few_res = f"Few res for {file}: {few} in {time.time() - start_time} seconds"
     print(few_res)
-    
-    #Many:
-    if int(num_nodes) < 14: # "brute force" many
-        many = max_red_on_any_path_brute(G, start_node, end_node)
-        many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
-        print(many_res)
-    else:
-        try: # 
-            many = max_red_on_any_path(G, start_node, end_node)
-            many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
-            print(many_res)
-        except NegativeWeightCycleException:
-            many = "???"
-            many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
-            print(many_res)
 
-    # #Some: true if many > 0)
-    if many == "???" or many == 0:
-        some = path_exists_including_red(G, start_node, end_node)
+    if is_undirected(G):
+        some = path_exists_including_red_flow(G, start_node, end_node)
         some_res = f"Some res for {file}: {some} in {time.time() - start_time} seconds"
         print(some_res)
+    elif many > 0:
+        some = f"Some res for {file}: True in {time.time() - start_time} seconds"
+        print(some)
     else:
-        some_res = f"Some res for {file}: True in {time.time() - start_time} seconds"
-        print(some_res)
+        some = f"Some res for {file}: ??? in {time.time() - start_time} seconds"   
+        print(some)
+    
+    #Many:
+    # if int(num_nodes) < 14: # "brute force" many
+    #     many = max_red_on_any_path_brute(G, start_node, end_node)
+    #     many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+    #     print(many_res)
+    # else:
+    #     try: # 
+    #         many = max_red_on_any_path(G, start_node, end_node)
+    #         many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+    #         print(many_res)
+    #     except NegativeWeightCycleException:
+    #         many = "???"
+    #         many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+    #         print(many_res)
     
     if should_write == '1':
         with open("results.txt", "a") as f:
