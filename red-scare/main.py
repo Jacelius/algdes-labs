@@ -84,55 +84,73 @@ for file in files: # run None, Some, Many, Few & Alternate on the graph
 
     #None:
     none = shortest_path(G, start_node, end_node, int(num_edges))
-    none_res = f"None res for {file}: {none} in {time.time() - start_time} seconds"
+    none_time = round(time.time() - start_time, 2)
+    none_res = f"None res for {file}: {none} in {none_time} seconds"
     print(none_res)
 
+    start_time = time.time()
     # #Alternate:
     alternates = path_exists_alternating_red(G, start_node, end_node)
-    alternates_res = f"Alternate res for {file}: {alternates} in {time.time() - start_time} seconds"
+    Alternate_time = round(time.time() - start_time, 2)
+    alternates_res = f"Alternate res for {file}: {alternates} in {Alternate_time} seconds"
     print(alternates_res)
 
+    start_time = time.time()
     #Few:
     few = min_red_on_any_path_dijkstra(G, start_node, end_node)
-    few_res = f"Few res for {file}: {few} in {time.time() - start_time} seconds"
+    few_time = round(time.time() - start_time, 2)
+    few_res = f"Few res for {file}: {few} in {few_time} seconds"
     print(few_res)
 
     #Many:
+    start_time = time.time()
     if int(num_nodes) < 14: # "brute force" many
         many = max_red_on_any_path_brute(G, start_node, end_node)
-        many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+        many_time = round(time.time() - start_time, 2)
+        many_res = f"Many res for {file}: {many} in {many_time} seconds"
         print(many_res)
     else:
         if (is_DAG(G)):
             try:
                 many = max_red_on_any_path(G, start_node, end_node)
-                many_res = f"Many res for {file}: {many} in {time.time() - start_time} seconds"
+                many_time = round(time.time() - start_time, 2)
+                many_res = f"Many res for {file}: {many} in {many_time} seconds"
                 print(many_res) 
             except NegativeWeightCycleException: # should never happen, because we should only try on DAGs
-                many_res = f"Many res for {file}: ??? in {time.time() - start_time} seconds"
+                many_time = round(time.time() - start_time, 2)
+                many_res = f"Many res for {file}: ??? in {many_time} seconds"
                 print(many_res)
         else:
-            many_res = f"Many res for {file}: ??? in {time.time() - start_time} seconds"
+            many_time = round(time.time() - start_time, 2)
+            many_res = f"Many res for {file}: ??? in {many_time} seconds"
             print(many_res)
 
     if is_undirected(G):
         some = path_exists_including_red_flow(G, start_node, end_node)
-        some_res = f"Some res for {file}: {some} in {time.time() - start_time} seconds"
+        some_time = round(time.time() - start_time, 2)
+        some_res = f"Some res for {file}: {some} in {some_time} seconds"
         print(some_res)
     elif many > 0:
-        some = f"Some res for {file}: True in {time.time() - start_time} seconds"
+        some = path_exists_including_red_flow(G, start_node, end_node)
+        some_time = round(time.time() - start_time, 2)
+        some = f"Some res for {file}: True in {some_time} seconds"
         print(some)
     else:
-        some = f"Some res for {file}: ??? in {time.time() - start_time} seconds"   
+        some_time = round(time.time() - start_time, 2)
+        some = f"Some res for {file}: ??? in {some_time} seconds"   
         print(some)
     
+
+
     if should_write == '1':
-        with open("results.txt", "a") as f:
-            f.write(none_res + "\n")
-            f.write(some_res + "\n")
-            f.write(alternates_res + "\n")
-            f.write(few_res + "\n")
-            f.write(many_res + "\n\n")
+        with open("results_format.txt", "a") as f:
+            f.write(file + " " + str(none_time) + " " + str(Alternate_time) + " " + str(few_time) + " " + str(many_time) + " " 
+            + str(some_time)+ "\n")
+            #f.write(none_res + "\n")
+            #f.write(some_res + "\n")
+            #f.write(alternates_res + "\n")
+            #f.write(few_res + "\n")
+            #f.write(many_res + "\n\n")
             
     print("\n")
     
